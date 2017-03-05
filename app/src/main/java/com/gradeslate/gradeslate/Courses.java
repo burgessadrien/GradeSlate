@@ -1,11 +1,13 @@
-package com.gradeslate.gradeslate.Backend;
+package com.gradeslate.gradeslate;
 import java.util.ArrayList;
 
 public class Courses {
 	private ArrayList<Course>  courses = new ArrayList<Course>();
 	private float gpa = 0;
-	
-	Courses(){}
+	private String semester;
+	Courses(String semester){
+		this.semester = semester;
+	}
 	
 	public void addCourse(String title, int time, int credHour){
 		Course next = new Course(title, time, credHour);
@@ -18,7 +20,14 @@ public class Courses {
 				return find;
 		return null;
 	}
-	
+
+	public void setName(String semester){
+		this.semester = semester;
+	}
+
+	public String getName(){
+		return semester;
+	}
 	
 	
 	public float calcGPA(){

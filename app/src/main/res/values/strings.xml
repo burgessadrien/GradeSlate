@@ -95,4 +95,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="editSemester">Name of Semester</string>
+    <string name="errorSemesterMsg">Please name semester</string>
+    <string name="semesterAddedMsg">Semester added</string>
+    <string name="semester_name">semester_name</string>
 </resources>

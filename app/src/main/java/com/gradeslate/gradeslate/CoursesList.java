@@ -1,6 +1,5 @@
 package com.gradeslate.gradeslate;
 
-import android.app.ListActivity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;

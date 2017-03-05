@@ -1,4 +1,4 @@
-package com.gradeslate.gradeslate.Backend;
+package com.gradeslate.gradeslate;
 
 public class Course {
 	

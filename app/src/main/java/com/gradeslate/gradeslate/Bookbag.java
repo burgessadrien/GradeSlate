@@ -1,4 +1,4 @@
-package com.gradeslate.gradeslate.Backend;
+package com.gradeslate.gradeslate;
 import java.util.ArrayList;
 
 public class Bookbag {

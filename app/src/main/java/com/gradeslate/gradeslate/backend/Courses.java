@@ -1,11 +1,11 @@
-package com.gradeslate.gradeslate;
+package com.gradeslate.gradeslate.backend;
 import java.util.ArrayList;
 
 public class Courses {
 	private ArrayList<Course>  courses = new ArrayList<Course>();
 	private float gpa = 0;
 	private String semester;
-	Courses(String semester){
+	public Courses(String semester){
 		this.semester = semester;
 	}
 	

@@ -1,4 +1,4 @@
-package com.gradeslate.gradeslate;
+package com.gradeslate.gradeslate.backend;
 import java.util.ArrayList;
 
 public class Grades {

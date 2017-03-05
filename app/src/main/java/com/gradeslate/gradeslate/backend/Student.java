@@ -1,4 +1,4 @@
-package com.gradeslate.gradeslate;
+package com.gradeslate.gradeslate.backend;
 
 public class Student extends Person{
 		Student(String name) {

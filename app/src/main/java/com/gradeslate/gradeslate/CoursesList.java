@@ -76,17 +76,20 @@ public class CoursesList extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                         String semester = semesterNames.get(position);
+                        //enter course page here
+                        //code to be added for implementation
                     }
                 }
         );
 
     }//end of onCreate()
-
+/*
     public View onCreateiew(LayoutInflater inflater,
                             ViewGroup container, Bundle savedInstanceState) {
         View mainView = inflater.inflate(R.layout.activity_courses_list, container, false);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(),1);
+        //RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(),1);
     }
+*/  //to be finished later
 
 }//end of class
 

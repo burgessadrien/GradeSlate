@@ -18,12 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".course_info" />
+        <activity android:name=".EvaluationsPage" />
         <activity
             android:name=".CoursesList"
             android:label="@string/title_activity_courses_list"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".course_info" />
-        <activity android:name=".EvaluationsPage"></activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

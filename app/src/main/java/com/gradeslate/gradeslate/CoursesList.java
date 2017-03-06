@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ListViewCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,6 +43,17 @@ public class CoursesList extends AppCompatActivity {
         ListView listview = (ListView) findViewById(R.id.semesterNames);
         adapter = new ArrayAdapter<String>(this, R.layout.list_item, R.id.text_item, semesterNames);
         listview.setAdapter(adapter);
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                semester = String.valueOf(parent.getItemAtPosition(position));
+                Courses found = findSemester(semester);
+                if(found != null) {
+                    Toast.makeText(CoursesList.this,
+                            found.getName(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
 
@@ -92,6 +104,15 @@ public class CoursesList extends AppCompatActivity {
 
             }
         });
+    }//end of onFabClick
+
+    public Courses findSemester(String name){
+        for(int i = 0; i<semesters.size(); i++){
+            if(semesters.get(i).getName()==name){
+                return semesters.get(i);
+            }
+        }
+        return null;
     }
 
 }//end of class

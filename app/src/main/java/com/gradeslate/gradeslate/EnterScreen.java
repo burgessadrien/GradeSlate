@@ -14,7 +14,7 @@ public class EnterScreen extends AppCompatActivity {
     }
 
     public void enterMessage(View view){
-        Intent intent = new Intent(this, CoursesList.class);
+        Intent intent = new Intent(this,course_info.class);
         startActivity(intent);
     }
 }

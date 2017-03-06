@@ -41,7 +41,7 @@ public class CoursesList extends AppCompatActivity {
 
 
         ListView listview = (ListView) findViewById(R.id.semesterNames);
-        adapter = new ArrayAdapter<String>(this, R.layout.list_item, R.id.text_item, semesterNames);
+        adapter = new ArrayAdapter<String>(this, R.layout.list_item, R.id.semester_item, semesterNames);
         listview.setAdapter(adapter);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override

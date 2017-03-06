@@ -1,7 +1,7 @@
 package com.gradeslate.gradeslate.backend;
 
 public class Person {
-	private String name;
+	private String name = "Fred Tester";
 	private String email;
 	
 	Person(String name){

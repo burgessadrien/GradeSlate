@@ -98,4 +98,7 @@
     <string name="errorSemesterMsg">Please name semester</string>
     <string name="semesterAddedMsg">Semester added</string>
     <string name="semester_name">semester_name</string>
+    <string name="prof_button">Prof:</string>
+    <string name="Grades">Grades</string>
+    <string name="Test">Test!</string>
 </resources>

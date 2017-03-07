@@ -1,7 +1,7 @@
 package com.gradeslate.gradeslate.backend;
 
 public class Evaluation {
-	private Evaluations evalType;
+	private String evalType;
 	private int grade;
 	private int worth;
 	private Team team;
@@ -10,13 +10,13 @@ public class Evaluation {
 	 * add tasks when ready
 	 */
 	
-	Evaluation(Evaluations type, int worth){
+	Evaluation(String type, int worth){
 		this.evalType = type;
 		this.worth = worth;
 		team = new Team();
 	}
 	
-	public void setEval(Evaluations type){
+	public void setEval(String type){
 		evalType = type;
 		
 	}
@@ -25,7 +25,7 @@ public class Evaluation {
 		return team;
 	}
 	
-	public Evaluations getType(){
+	public String getType(){
 		return evalType;
 	}
 	

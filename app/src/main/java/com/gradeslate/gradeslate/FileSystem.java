@@ -22,7 +22,7 @@ can be used by the variuous activities
 
 public class FileSystem {
 
-    private static FileSystem fileSystem = new FileSystem();
+    private static FileSystem fileSystem;
     private static ArrayList<Courses> semesters;
     private ArrayList<Course> courses;
     private ArrayList<Evaluation> evals;
@@ -40,11 +40,36 @@ public class FileSystem {
     //Static instance method
 
     public static FileSystem getInstance(){
+        if(fileSystem == null){
+            fileSystem = new FileSystem();
+        }
         return fileSystem;
     }
 
     public static ArrayList<Courses> getSemesters(){
         return semesters;
+    }
+
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
+
+    public Course getCourse(String course){
+        for(Course send:courses)
+            if(send.getTitle()==course)
+                return send;
+        return null;
+    }
+
+    public Evaluation getEval(String name){
+        for(Evaluation send:evals)
+            if(send.getType()==name)
+                return send;
+        return null;
+    }
+
+    public Grades getGrades() {
+        return grades;
     }
 
     public void setCourses(String semester){
@@ -59,10 +84,8 @@ public class FileSystem {
                 grades = cour.getGrades();
     }
 
-    public void getEvals(String grade){
-        for(Evaluation eval:grades.getGrades())
-            if( eval.getType() == grade)
-                evals
+    public void getEvals(){
+       evals = grades.getGrades();
     }
 
 

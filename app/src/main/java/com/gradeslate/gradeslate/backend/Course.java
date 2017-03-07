@@ -13,8 +13,8 @@ public class Course {
 	 * 
 	 * adding times for labs, tests, assignments and other
 	 */
-	
-	Course(String title, int time, int credHour){
+
+	public Course(String title, int credHour){
 		this.title = title;
 		this.credHour = credHour;
 	}

@@ -20,7 +20,7 @@ import com.gradeslate.gradeslate.backend.Courses;
 import java.util.ArrayList;
 
 public class CoursesList extends AppCompatActivity {
-
+    FileSystem data;
     private FloatingActionButton fab;
     private EditText mSemester;
     private ArrayList<Courses> semesters;
@@ -35,7 +35,8 @@ public class CoursesList extends AppCompatActivity {
         setContentView(R.layout.activity_courses_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        this.semesters = new ArrayList();
+        data.getInstance();
+        this.semesters = data.getSemesters();
         this.semesterNames = new ArrayList();
         semesterNames.add(empty);
 

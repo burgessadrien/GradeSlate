@@ -1,4 +1,5 @@
 package com.gradeslate.gradeslate.backend;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Grades {
@@ -20,7 +21,11 @@ public class Grades {
 		avgGrd = sum/num;
 		
 	}
-	
+
+	public ArrayList<Evaluation> getGrades() {
+		return grades;
+	}
+
 	public void letter(){
 		average();
 		
@@ -50,8 +55,7 @@ public class Grades {
 		for(Evaluation grade:grades)
 			curGrd += grade.totalGrdPer();
 	}
-	
-	
+
 	public int getAvgGrds(){
 		return avgGrd;
 	}
@@ -64,10 +68,12 @@ public class Grades {
 		return letGrd;
 	}
 	
-	public void addEval(Evaluations type, int worth){
+	public void addEval(String type, int worth){
 		Evaluation next = new Evaluation(type, worth);
 		grades.add(next);
 	}
+
+
 	
 	
 }

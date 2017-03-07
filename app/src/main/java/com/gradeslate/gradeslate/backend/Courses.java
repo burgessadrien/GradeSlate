@@ -10,10 +10,14 @@ public class Courses {
 	}
 	
 	public void addCourse(String title, int time, int credHour){
-		Course next = new Course(title, time, credHour);
+		Course next = new Course(title, credHour);
 		courses.add(next);
 	}
-	
+
+	public ArrayList<Course> getCourses(){
+        return courses;
+    }
+
 	public Course getCourse(String title){
 		for(Course find:courses)
 			if(find.getTitle() == title)

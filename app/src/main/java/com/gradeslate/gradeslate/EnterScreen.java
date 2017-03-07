@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 
 public class EnterScreen extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,7 +13,7 @@ public class EnterScreen extends AppCompatActivity {
     }
 
     public void enterMessage(View view){
-        Intent intent = new Intent(this,course_info.class);
+        Intent intent = new Intent(this,CoursesList.class);
         startActivity(intent);
     }
 }

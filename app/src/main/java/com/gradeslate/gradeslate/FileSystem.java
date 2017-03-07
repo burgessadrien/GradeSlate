@@ -1,0 +1,72 @@
+package com.gradeslate.gradeslate;
+
+import com.gradeslate.gradeslate.backend.Course;
+import com.gradeslate.gradeslate.backend.Courses;
+import com.gradeslate.gradeslate.backend.Evaluation;
+import com.gradeslate.gradeslate.backend.Evaluations;
+import com.gradeslate.gradeslate.backend.Grades;
+
+import java.util.ArrayList;
+
+/**
+ * Created by adrien on 07/03/17.
+ *
+ * referenced: https://www.tutorialspoint.com/java/java_using_singleton.htm
+ */
+
+
+/*
+Singleton used to hold data about courses and other information for the user so that it
+can be used by the variuous activities
+ */
+
+public class FileSystem {
+
+    private static FileSystem fileSystem = new FileSystem();
+    private static ArrayList<Courses> semesters;
+    private ArrayList<Course> courses;
+    private ArrayList<Evaluation> evals;
+    private Grades grades;
+    private String semester;
+    private String course;
+    private String grade;
+
+    private FileSystem(){
+        semesters = new ArrayList();
+        courses = new ArrayList();
+        evals = new ArrayList();
+    }
+
+    //Static instance method
+
+    public static FileSystem getInstance(){
+        return fileSystem;
+    }
+
+    public static ArrayList<Courses> getSemesters(){
+        return semesters;
+    }
+
+    public void setCourses(String semester){
+        for(Courses sem:semesters)
+            if( sem.getName() == semester)
+                courses = sem.getCourses();
+    }
+
+    public void getGrades(String course){
+        for(Course cour:courses)
+            if( cour.getTitle() == course)
+                grades = cour.getGrades();
+    }
+
+    public void getEvals(String grade){
+        for(Evaluation eval:grades.getGrades())
+            if( eval.getType() == grade)
+                evals
+    }
+
+
+
+
+
+}

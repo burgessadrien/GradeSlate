@@ -3,7 +3,7 @@ package com.gradeslate.gradeslate.backend;
 public class Professor extends Person{
 		
 		private String offLoc;
-		private int offHour;
+		private String offHour;
 		private int offLen;
 	
 		
@@ -19,11 +19,11 @@ public class Professor extends Person{
 			return offLoc;
 		}
 		
-		public void setOffHour(int offHour){
+		public void setOffHour(String offHour){
 			this.offHour = offHour;
 		}
 		
-		public int getOffHour(){
+		public String getOffHour(){
 			return offHour;
 		}
 		

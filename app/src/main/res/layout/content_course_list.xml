@@ -1,9 +1,19 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment"
-    android:name="com.gradeslate.gradeslate.CourseListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:layout="@layout/fragment_course_list" />
+    tools:context="com.gradeslate.gradeslate.CourseList"
+    tools:showIn="@layout/activity_course_list">
+
+    <ListView
+        android:id="@+id/courseNames"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        />
+
+</android.support.v7.widget.LinearLayoutCompat>
+

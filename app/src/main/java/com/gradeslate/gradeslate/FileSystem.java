@@ -41,9 +41,25 @@ public class FileSystem {
 
     public static FileSystem getInstance(){
         if(fileSystem == null){
-            fileSystem = new FileSystem();
+            synchronized (FileSystem.class){
+                if(fileSystem == null){
+                    fileSystem = new FileSystem();
+                }
+            }
         }
         return fileSystem;
+    }
+
+    public Courses findSemester(String semster){
+        for(Courses sem:semesters)
+            if( sem.getName() == semester)
+                return sem;
+        return null;
+    }
+
+    public void addSemester(String semester){
+        Courses next =  new Courses(semester);
+        semesters.add(next);
     }
 
     public static ArrayList<Courses> getSemesters(){
@@ -54,6 +70,9 @@ public class FileSystem {
         return courses;
     }
 
+    public void addCourse(String course, int credHour){
+        courses.add(new Course(course, credHour));
+    }
     public Course getCourse(String course){
         for(Course send:courses)
             if(send.getTitle()==course)

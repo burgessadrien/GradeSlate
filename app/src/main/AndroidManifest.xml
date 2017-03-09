@@ -26,8 +26,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CourseList"
-            android:label="@string/title_activity_course_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="CourseList"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

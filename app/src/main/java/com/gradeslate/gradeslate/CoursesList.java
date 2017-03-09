@@ -1,11 +1,10 @@
 package com.gradeslate.gradeslate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.ListViewCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,42 +16,46 @@ import android.widget.Toast;
 
 import com.gradeslate.gradeslate.backend.Courses;
 
+import java.io.File;
 import java.util.ArrayList;
 
+import static android.R.id.message;
+import static java.security.AccessController.getContext;
+
 public class CoursesList extends AppCompatActivity {
-    FileSystem data;
+
     private FloatingActionButton fab;
     private EditText mSemester;
-    private ArrayList<Courses> semesters;
     private ArrayList<String> semesterNames;
     private String semester;
     private ArrayAdapter<String> adapter;
     private EditText editText;
-    private String empty = "please add a semester";
+    private String empty = "Please add a semester";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        data.getInstance();
-        this.semesters = data.getSemesters();
         this.semesterNames = new ArrayList();
-        semesterNames.add(empty);
+        addNames();
 
 
         ListView listview = (ListView) findViewById(R.id.semesterNames);
-        adapter = new ArrayAdapter<String>(this, R.layout.list_item, R.id.semester_item, semesterNames);
+        adapter = new ArrayAdapter<String>(this, R.layout.semester_item, R.id.semester_name, semesterNames);
         listview.setAdapter(adapter);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                semester = String.valueOf(parent.getItemAtPosition(position));
-                Courses found = findSemester(semester);
-                if(found != null) {
-                    Toast.makeText(CoursesList.this,
-                            found.getName(), Toast.LENGTH_SHORT).show();
+                semester = findSemester(position);
+                FileSystem.getInstance().setCourses(semester);
+                if(semester != null) {
+                  Toast.makeText(CoursesList.this,
+                           semester, Toast.LENGTH_SHORT).show();
+                    Intent goToNextActivity = new Intent(view.getContext(), CourseList.class);
+                    startActivity(goToNextActivity);
                 }
+
             }
         });
 
@@ -79,7 +82,7 @@ public class CoursesList extends AppCompatActivity {
                             semester = mSemester.getText().toString();
                             //semesterNames.add(semester);
                             Courses newSemester = new Courses(semester);
-                            semesters.add(newSemester);
+                            FileSystem.getInstance().addSemester(semester);
                             if(semesterNames.get(0)==empty) {
                                 semesterNames.clear();
                                 semesterNames.add(semester);
@@ -88,7 +91,7 @@ public class CoursesList extends AppCompatActivity {
                                 semesterNames.add(semester);
                             }
                             adapter.notifyDataSetChanged();
-                            String test = semesters.get(semesters.size()-1).getName();
+                            String test = FileSystem.getInstance().getSemesters().get(FileSystem.getInstance().getSemesters().size()-1).getName();
                             Toast.makeText(CoursesList.this,
                                     test, Toast.LENGTH_SHORT).show();
 
@@ -107,13 +110,22 @@ public class CoursesList extends AppCompatActivity {
         });
     }//end of onFabClick
 
-    public Courses findSemester(String name){
-        for(int i = 0; i<semesters.size(); i++){
-            if(semesters.get(i).getName()==name){
-                return semesters.get(i);
-            }
+    public String findSemester(int position){
+        if(FileSystem.getInstance().getSemesters().get(position) != null){
+            return FileSystem.getInstance().getSemesters().get(position).getName();
         }
         return null;
+    }
+
+    public void addNames(){
+        this.semesterNames = new ArrayList<String>();
+
+        for(int i = 0; i < FileSystem.getInstance().getCourses().size(); i++){
+            this.semesterNames.add(FileSystem.getInstance().getCourses().get(i).getTitle());
+        }
+        if(semesterNames.isEmpty()){
+            semesterNames.add(empty);
+        }
     }
 
 }//end of class

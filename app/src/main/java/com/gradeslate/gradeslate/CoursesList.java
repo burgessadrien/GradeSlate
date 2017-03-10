@@ -49,6 +49,7 @@ public class CoursesList extends AppCompatActivity {
                   Toast.makeText(CoursesList.this,
                            semester, Toast.LENGTH_SHORT).show();
                     Intent goToNextActivity = new Intent(view.getContext(), CourseList.class);
+                    goToNextActivity.putExtra("semester", semester);
                     startActivity(goToNextActivity);
                 }
 

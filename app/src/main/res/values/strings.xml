@@ -103,4 +103,6 @@
     <string name="Test">Test!</string>
     <string name="title_activity_course_list">CourseList</string>
     <string name="addCourseError">error adding course</string>
+    <string name="title_activity_grade_list">GradeList</string>
+    <string name="addGradeError">error adding grade</string>
 </resources>

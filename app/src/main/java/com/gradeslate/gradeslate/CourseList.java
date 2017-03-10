@@ -1,5 +1,6 @@
 package com.gradeslate.gradeslate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -13,9 +14,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-
-import com.gradeslate.gradeslate.backend.Course;
-
 import java.util.ArrayList;
 
 public class CourseList extends AppCompatActivity {
@@ -23,10 +21,10 @@ public class CourseList extends AppCompatActivity {
     private EditText mCourse;
     private ArrayList<String> courseNames;
     private String course;
+    private String semester;
     private int credHour = 0;
     private ArrayAdapter<String> adapter;
     private EditText editCred;
-    private EditText editText;
     private String empty = "Please add a course";
 
     @Override
@@ -36,7 +34,7 @@ public class CourseList extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         addNames();
-
+        semester = getIntent().getStringExtra("semester");
 
 
         ListView listview = (ListView) findViewById(R.id.courseNames);
@@ -46,10 +44,14 @@ public class CourseList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 course = String.valueOf(parent.getItemAtPosition(position));
+                FileSystem.getInstance().setGrades(course);
                 String found = findCourse(position);
                 if(found != null) {
                     Toast.makeText(CourseList.this,
-                            found, Toast.LENGTH_SHORT).show();
+                            course, Toast.LENGTH_SHORT).show();
+                    Intent goToNextActivity = new Intent(view.getContext(), GradeList.class);
+                    goToNextActivity.putExtra("course", course);
+                    startActivity(goToNextActivity);
                 }
             }
         });
@@ -73,8 +75,6 @@ public class CourseList extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         if(!mCourse.getText().toString().isEmpty()){
-                            // Toast.makeText(courseList.this,
-                            //       R.string.semesterAddedMsg, Toast.LENGTH_SHORT).show();
                             course = mCourse.getText().toString();
                             credHour = Integer.parseInt(editCred.getText().toString());
                             FileSystem.getInstance().addCourse(course, credHour);
@@ -104,6 +104,8 @@ public class CourseList extends AppCompatActivity {
             }
         });
     }//end of onFabClick
+
+
 
     public void addNames(){
         this.courseNames = new ArrayList<String>();

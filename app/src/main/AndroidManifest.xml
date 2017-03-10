@@ -26,6 +26,10 @@
         <activity
             android:name=".CourseList"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GradeList"
+            android:label="@string/title_activity_grade_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

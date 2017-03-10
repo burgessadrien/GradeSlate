@@ -25,16 +25,13 @@ public class FileSystem {
     private static FileSystem fileSystem;
     private static ArrayList<Courses> semesters;
     private ArrayList<Course> courses;
-    private ArrayList<Evaluation> evals;
     private Grades grades;
-    private String semester;
-    private String course;
-    private String grade;
+    private Courses semester;
+    private Course course;
 
     private FileSystem(){
         semesters = new ArrayList();
         courses = new ArrayList();
-        evals = new ArrayList();
     }
 
     //Static instance method
@@ -50,13 +47,25 @@ public class FileSystem {
         return fileSystem;
     }
 
-    public Courses findSemester(String semster){
+
+    public void addEvaluation(String name, int worth){
+        grades.addEval(name, worth);
+    }
+
+    public Courses findSemester(String semester){
         for(Courses sem:semesters)
             if( sem.getName() == semester)
                 return sem;
         return null;
     }
 
+    public void setSemester(String semester){
+        for(Courses find:semesters){
+            if(find.getName()==semester){
+                this.semester = find;
+            }
+        }
+    }
     public void addSemester(String semester){
         Courses next =  new Courses(semester);
         semesters.add(next);
@@ -73,23 +82,6 @@ public class FileSystem {
     public void addCourse(String course, int credHour){
         courses.add(new Course(course, credHour));
     }
-    public Course getCourse(String course){
-        for(Course send:courses)
-            if(send.getTitle()==course)
-                return send;
-        return null;
-    }
-
-    public Evaluation getEval(String name){
-        for(Evaluation send:evals)
-            if(send.getType()==name)
-                return send;
-        return null;
-    }
-
-    public Grades getGrades() {
-        return grades;
-    }
 
     public void setCourses(String semester){
         for(Courses sem:semesters)
@@ -97,15 +89,26 @@ public class FileSystem {
                 courses = sem.getCourses();
     }
 
-    public void getGrades(String course){
+    public void setCourse(String course){
+        for(Course find:courses){
+            if(find.getTitle()==course){
+                this.course = find;
+            }
+        }
+    }
+
+
+
+    public void setGrades(String course){
         for(Course cour:courses)
             if( cour.getTitle() == course)
                 grades = cour.getGrades();
     }
 
-    public void getEvals(){
-       evals = grades.getGrades();
+    public Grades getGrades() {
+        return grades;
     }
+
 
 
 

@@ -1,5 +1,6 @@
 package com.gradeslate.gradeslate;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,14 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.gradeslate.gradeslate.backend.Courses;
-
-import java.io.File;
 import java.util.ArrayList;
 
-import static android.R.id.message;
-import static java.security.AccessController.getContext;
 
 public class CoursesList extends AppCompatActivity {
 
@@ -69,18 +65,16 @@ public class CoursesList extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(CoursesList.this);
+                final AlertDialog dialog = new AlertDialog.Builder(CoursesList.this).create();
                 View mView = getLayoutInflater().inflate(R.layout.dialog_semester, null);
+
                 mSemester = (EditText) mView.findViewById(R.id.editSemester);
                 Button mAdd = (Button) mView.findViewById(R.id.add);
                 mAdd.setOnClickListener(new View.OnClickListener()  {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick( View view) {
                         if(!mSemester.getText().toString().isEmpty()){
-                            // Toast.makeText(CoursesList.this,
-                            //       R.string.semesterAddedMsg, Toast.LENGTH_SHORT).show();
                             semester = mSemester.getText().toString();
-                            //semesterNames.add(semester);
                             Courses newSemester = new Courses(semester);
                             FileSystem.getInstance().addSemester(semester);
                             if(semesterNames.get(0)==empty) {
@@ -94,6 +88,7 @@ public class CoursesList extends AppCompatActivity {
                             String test = FileSystem.getInstance().getSemesters().get(FileSystem.getInstance().getSemesters().size()-1).getName();
                             Toast.makeText(CoursesList.this,
                                     test, Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
 
                         }
                         else{
@@ -102,8 +97,7 @@ public class CoursesList extends AppCompatActivity {
                         }
                     }
                 });
-                mBuilder.setView(mView);
-                AlertDialog dialog = mBuilder.create();
+                dialog.setView(mView);
                 dialog.show();
 
             }
@@ -121,7 +115,7 @@ public class CoursesList extends AppCompatActivity {
         this.semesterNames = new ArrayList<String>();
 
         for(int i = 0; i < FileSystem.getInstance().getCourses().size(); i++){
-            this.semesterNames.add(FileSystem.getInstance().getCourses().get(i).getTitle());
+            this.semesterNames.add(FileSystem.getInstance().getSemesters().get(i).getName());
         }
         if(semesterNames.isEmpty()){
             semesterNames.add(empty);

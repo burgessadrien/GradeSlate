@@ -64,7 +64,7 @@ public class CourseList extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(CourseList.this);
+                final AlertDialog dialog = new AlertDialog.Builder(CourseList.this).create();
                 View mView = getLayoutInflater().inflate(R.layout.dialog_course, null);
                 mCourse = (EditText) mView.findViewById(R.id.editCourse);
                 editCred = (EditText) mView.findViewById(R.id.enter_cred_hour);
@@ -89,6 +89,7 @@ public class CourseList extends AppCompatActivity {
                             String test = course;
                             Toast.makeText(CourseList.this,
                                     test, Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
 
                         }
                         else{
@@ -97,8 +98,7 @@ public class CourseList extends AppCompatActivity {
                         }
                     }
                 });
-                mBuilder.setView(mView);
-                AlertDialog dialog = mBuilder.create();
+                dialog.setView(mView);
                 dialog.show();
 
             }

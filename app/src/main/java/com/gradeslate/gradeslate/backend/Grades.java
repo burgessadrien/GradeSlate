@@ -73,6 +73,10 @@ public class Grades {
 		grades.add(next);
 	}
 
+	public ArrayList<Evaluation> getEvaluations(){
+		return grades;
+	}
+
 
 	
 	

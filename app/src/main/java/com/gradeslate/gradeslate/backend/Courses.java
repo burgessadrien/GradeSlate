@@ -2,10 +2,11 @@ package com.gradeslate.gradeslate.backend;
 import java.util.ArrayList;
 
 public class Courses {
-	private ArrayList<Course>  courses = new ArrayList<Course>();
+	private ArrayList<Course>  courses;
 	private float gpa = 0;
 	private String semester;
 	public Courses(String semester){
+		this.courses = new ArrayList<Course>();
 		this.semester = semester;
 	}
 	

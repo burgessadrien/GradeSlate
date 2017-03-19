@@ -9,8 +9,8 @@ public class Evaluation {
 	 * 
 	 * add tasks when ready
 	 */
-	
-	Evaluation(String type, int worth){
+
+	public Evaluation(String type, int worth){
 		this.evalType = type;
 		this.worth = worth;
 		team = new Team();

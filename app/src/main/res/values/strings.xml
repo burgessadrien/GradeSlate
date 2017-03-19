@@ -102,12 +102,7 @@
     <string name="Grades">Grades</string>
     <string name="Test">Test!</string>
     <string name="title_activity_course_list">CourseList</string>
-    <string name="title_activity_edit_prof">EditProf</string>
-    <string name="Name">Enter Name</string>
-    <string name="Email">Enter Email</string>
-    <string name="office_location">Enter Office Location</string>
-    <string name="office_hours">Enter Office Hours</string>
-    <string name="update_button">Update</string>
-    <string name="office_hours_text">Office Hours</string>
-    <string name="office_locn_text">Office Location</string>
+    <string name="addCourseError">error adding course</string>
+    <string name="title_activity_grade_list">GradeList</string>
+    <string name="addGradeError">error adding grade</string>
 </resources>

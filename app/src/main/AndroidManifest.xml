@@ -4,9 +4,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/slate_menu"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".EnterScreen">
@@ -22,16 +21,13 @@
         <activity android:name=".EvaluationsPage" />
         <activity
             android:name=".CoursesList"
-            android:label="@string/title_activity_courses_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CourseList"
-            android:label="@string/title_activity_course_list"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ProfInfo" />
         <activity
-            android:name=".EditProf"
-            android:label="@string/title_activity_edit_prof"
+            android:name=".GradeList"
+            android:label="@string/title_activity_grade_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

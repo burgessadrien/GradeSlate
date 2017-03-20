@@ -16,6 +16,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/prof_button"
+        android:onClick="toProf"
         android:layout_marginTop="16dp" />
 
     <Button
@@ -23,7 +24,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:onClick="onClick"
+        android:onClick="toGrades"
         android:text="@string/Grades" />
 
     </LinearLayout>

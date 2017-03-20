@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.gradeslate.gradeslate.backend.FileSystem;
 
 public class course_info extends AppCompatActivity {
 
@@ -17,8 +20,15 @@ public class course_info extends AppCompatActivity {
     }
 
 
-    public void onClick(View view) {
-        Intent intent = new Intent(this, EvaluationsPage.class);
+    public void toGrades(View view) {
+            Intent goToNextActivity = new Intent(view.getContext(), GradeList.class);
+            startActivity(goToNextActivity);
+        Intent intent = new Intent(this, GradeList.class);
+        startActivity(intent);
+    }
+
+    public void toProf(View view){
+        Intent intent = new Intent(this, ProfInfo.class);
         startActivity(intent);
     }
 }

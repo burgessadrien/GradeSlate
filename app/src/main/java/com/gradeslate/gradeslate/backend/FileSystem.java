@@ -1,10 +1,4 @@
-package com.gradeslate.gradeslate;
-
-import com.gradeslate.gradeslate.backend.Course;
-import com.gradeslate.gradeslate.backend.Courses;
-import com.gradeslate.gradeslate.backend.Evaluation;
-import com.gradeslate.gradeslate.backend.Evaluations;
-import com.gradeslate.gradeslate.backend.Grades;
+package com.gradeslate.gradeslate.backend;
 
 import java.util.ArrayList;
 

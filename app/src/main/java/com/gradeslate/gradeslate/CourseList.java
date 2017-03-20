@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.gradeslate.gradeslate.backend.FileSystem;
+
 import java.util.ArrayList;
 
 public class CourseList extends AppCompatActivity {
@@ -49,7 +51,7 @@ public class CourseList extends AppCompatActivity {
                 if(found != null) {
                     Toast.makeText(CourseList.this,
                             course, Toast.LENGTH_SHORT).show();
-                    Intent goToNextActivity = new Intent(view.getContext(), GradeList.class);
+                    Intent goToNextActivity = new Intent(view.getContext(), course_info.class);
                     goToNextActivity.putExtra("course", course);
                     startActivity(goToNextActivity);
                 }

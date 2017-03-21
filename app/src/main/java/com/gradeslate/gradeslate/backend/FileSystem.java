@@ -1,5 +1,9 @@
 package com.gradeslate.gradeslate.backend;
 
+import android.content.Context;
+
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -11,7 +15,7 @@ import java.util.ArrayList;
 
 /*
 Singleton used to hold data about courses and other information for the user so that it
-can be used by the variuous activities
+can be used by the various activities
  */
 
 public class FileSystem {
@@ -40,7 +44,6 @@ public class FileSystem {
         }
         return fileSystem;
     }
-
 
     public void addEvaluation(String name, int worth){
         grades.addEval(name, worth);
@@ -105,6 +108,39 @@ public class FileSystem {
 
 
 
+    /*
+    *   The following method is used for writing to internal storage
+     */
+
+    public void writeSemesters(Context context){
+        String key = "saved data";
+        try{
+            InternalStorage.writeObject(context, key, semesters);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+     /*
+    *   The following method is used for reading from internal storage
+     */
+
+     public void readSemesters(Context context){
+         String key = "saved data";
+         ArrayList<Courses> listSemesters = new ArrayList();
+         try {
+             listSemesters = (ArrayList<Courses>) InternalStorage.readObject(context, key);
+         } catch (IOException e) {
+             e.printStackTrace();
+         } catch (ClassNotFoundException e) {
+             e.printStackTrace();
+         }
+         if(listSemesters != null)
+            semesters = listSemesters;
+
+     }
 
 
 

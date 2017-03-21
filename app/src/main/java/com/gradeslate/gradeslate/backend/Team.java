@@ -1,13 +1,14 @@
 package com.gradeslate.gradeslate.backend;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Team {
+public class Team implements Serializable {
 	private ArrayList<Student> members = new ArrayList<Student>();
 	
 	Team(){}
 	
 	public void addMem(String name){
-		Student stu = new Student(name); //fuck stu 
+		Student stu = new Student(name);
 		members.add(stu);
 	}
 	

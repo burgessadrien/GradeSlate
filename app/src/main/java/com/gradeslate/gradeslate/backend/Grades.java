@@ -1,8 +1,9 @@
 package com.gradeslate.gradeslate.backend;
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class Grades {
+public class Grades implements Serializable {
 	private ArrayList<Evaluation> grades = new ArrayList<Evaluation>();
 	private int avgGrd, curGrd, gpa;
 	private char letGrd;

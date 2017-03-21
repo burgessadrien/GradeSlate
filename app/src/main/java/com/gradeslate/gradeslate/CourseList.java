@@ -127,4 +127,10 @@ public class CourseList extends AppCompatActivity {
         return null;
     }
 
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        FileSystem.getInstance().writeSemesters(this);
+    }
+
 }//end of class

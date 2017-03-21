@@ -1,6 +1,8 @@
 package com.gradeslate.gradeslate.backend;
 
-public class Professor extends Person{
+import java.io.Serializable;
+
+public class Professor extends Person implements Serializable {
 		
 		private String offLoc;
 		private String offHour;

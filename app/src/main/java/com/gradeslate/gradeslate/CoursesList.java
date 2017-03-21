@@ -29,13 +29,13 @@ public class CoursesList extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
     private EditText editText;
     private String empty = "Please add a semester";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        this.semesterNames = new ArrayList();
         addNames();
 
 
@@ -117,12 +117,18 @@ public class CoursesList extends AppCompatActivity {
     public void addNames(){
         this.semesterNames = new ArrayList<String>();
 
-        for(int i = 0; i < FileSystem.getInstance().getCourses().size(); i++){
+        for(int i = 0; i < FileSystem.getInstance().getSemesters().size(); i++){
             this.semesterNames.add(FileSystem.getInstance().getSemesters().get(i).getName());
         }
         if(semesterNames.isEmpty()){
             semesterNames.add(empty);
         }
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        FileSystem.getInstance().writeSemesters(this);
     }
 
 }//end of class

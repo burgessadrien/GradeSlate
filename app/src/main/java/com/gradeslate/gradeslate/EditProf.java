@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.gradeslate.gradeslate.backend.FileSystem;
+
 public class EditProf extends AppCompatActivity {
 
     @Override
@@ -26,4 +28,10 @@ public class EditProf extends AppCompatActivity {
         });
     }
 
-}
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        FileSystem.getInstance().writeSemesters(this);
+    }
+
+}//end of class

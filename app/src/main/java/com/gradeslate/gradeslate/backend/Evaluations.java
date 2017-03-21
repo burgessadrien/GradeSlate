@@ -1,6 +1,8 @@
 package com.gradeslate.gradeslate.backend;
 
-public enum Evaluations {
+import java.io.Serializable;
+
+public enum Evaluations implements Serializable {
 	test,
 	quiz,
 	lab,

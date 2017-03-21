@@ -1,6 +1,8 @@
 package com.gradeslate.gradeslate.backend;
 
-public class Evaluation {
+import java.io.Serializable;
+
+public class Evaluation implements Serializable {
 	private String evalType;
 	private int grade;
 	private int worth;

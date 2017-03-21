@@ -31,4 +31,11 @@ public class course_info extends AppCompatActivity {
         Intent intent = new Intent(this, ProfInfo.class);
         startActivity(intent);
     }
-}
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        FileSystem.getInstance().writeSemesters(this);
+    }
+
+}//end of class

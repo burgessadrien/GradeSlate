@@ -1,6 +1,8 @@
 package com.gradeslate.gradeslate.backend;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
 	private String name = "Fred Tester";
 	private String email;
 	

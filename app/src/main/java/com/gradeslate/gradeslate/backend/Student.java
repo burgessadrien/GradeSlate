@@ -1,6 +1,8 @@
 package com.gradeslate.gradeslate.backend;
 
-public class Student extends Person{
+import java.io.Serializable;
+
+public class Student extends Person implements Serializable {
 		Student(String name) {
 			super(name);
 		}

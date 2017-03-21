@@ -1,7 +1,8 @@
 package com.gradeslate.gradeslate.backend;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Bookbag {
+public class Bookbag implements Serializable {
 	private ArrayList<Item> items = new ArrayList<Item>();
 	
 	Bookbag(){}

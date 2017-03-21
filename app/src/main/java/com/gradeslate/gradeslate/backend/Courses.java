@@ -1,7 +1,8 @@
 package com.gradeslate.gradeslate.backend;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Courses {
+public class Courses implements Serializable{
 	private ArrayList<Course>  courses;
 	private float gpa = 0;
 	private String semester;

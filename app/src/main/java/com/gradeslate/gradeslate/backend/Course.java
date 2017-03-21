@@ -1,6 +1,8 @@
 package com.gradeslate.gradeslate.backend;
 
-public class Course {
+import java.io.Serializable;
+
+public class Course implements Serializable {
 	
 	private Bookbag knapsack= new Bookbag();
 	private Grades grades = new Grades();

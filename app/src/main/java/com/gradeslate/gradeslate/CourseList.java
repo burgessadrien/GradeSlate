@@ -47,6 +47,7 @@ public class CourseList extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 course = String.valueOf(parent.getItemAtPosition(position));
                 FileSystem.getInstance().setGrades(course);
+                FileSystem.getInstance().setCourse(course);
                 String found = findCourse(position);
                 if(found != null) {
                     Toast.makeText(CourseList.this,
@@ -79,6 +80,10 @@ public class CourseList extends AppCompatActivity {
                         if(!mCourse.getText().toString().isEmpty()){
                             course = mCourse.getText().toString();
                             credHour = Integer.parseInt(editCred.getText().toString());
+                            if((credHour < 0)|(credHour > 5)){
+                                dialog.dismiss();
+                            }
+
                             FileSystem.getInstance().addCourse(course, credHour);
                             if(courseNames.get(0)==empty) {
                                 courseNames.clear();

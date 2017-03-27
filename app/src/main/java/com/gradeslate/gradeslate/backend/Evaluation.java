@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 public class Evaluation implements Serializable {
 	private String evalType;
-	private int grade;
-	private int worth;
+	private float grade;
+	private float worth;
 	private Team team;
 	/*******
 	 * 
 	 * add tasks when ready
 	 */
 
-	public Evaluation(String type, int worth){
+	public Evaluation(String type, float worth){
 		this.evalType = type;
 		this.worth = worth;
 		team = new Team();
@@ -35,17 +35,18 @@ public class Evaluation implements Serializable {
 		team.addMem(name);
 	}
 	
-	public void setGrade(int grade){
-		this.grade = grade;
+	public void setGrade(float grade){
+		if((grade >=0) && (grade <= 100))
+			this.grade = grade;
 	}
 	
-	public int getGrade(){
+	public float getGrade(){
 		return grade;
 	}
 	
-	public int totalGrdPer(){
-		int per = grade/100;
-		int total = per*worth;
+	public float totalGrdPer(){
+		float per = grade/100;
+		float total = per*worth;
 		return total;
 	}
 	

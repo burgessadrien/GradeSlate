@@ -22,13 +22,6 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <Button
-            android:id="@+id/info_course"
-            android:layout_width="wrap_content"
-            android:onClick="courseInfo"
-            android:layout_gravity="right"
-            android:layout_height="wrap_content"
-            android:text="Course Info" />
 
     </android.support.design.widget.AppBarLayout>
 

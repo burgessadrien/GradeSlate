@@ -5,14 +5,14 @@ import java.util.ArrayList;
 
 public class Grades implements Serializable {
 	private ArrayList<Evaluation> grades = new ArrayList<Evaluation>();
-	private int avgGrd, curGrd, gpa;
+	private float avgGrd, curGrd, gpa;
 	private char letGrd;
 	
 	Grades(){}
 	
 	public void average(){
-		int sum = 0;
-		int num = 0;
+		float sum = 0;
+		float num = 0;
 		
 		for(Evaluation grade:grades){
 			num++;
@@ -57,11 +57,11 @@ public class Grades implements Serializable {
 			curGrd += grade.totalGrdPer();
 	}
 
-	public int getAvgGrds(){
+	public float getAvgGrds(){
 		return avgGrd;
 	}
 	
-	public int getCurGrd(){
+	public float getCurGrd(){
 		return curGrd;
 	}
 	
@@ -69,7 +69,7 @@ public class Grades implements Serializable {
 		return letGrd;
 	}
 	
-	public void addEval(String type, int worth){
+	public void addEval(String type, float worth){
 		Evaluation next = new Evaluation(type, worth);
 		grades.add(next);
 	}

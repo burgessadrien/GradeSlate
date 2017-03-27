@@ -3,18 +3,20 @@ package com.gradeslate.gradeslate.backend;
 import java.io.Serializable;
 
 public class Person implements Serializable {
-	private String name = "Fred Tester";
+	private String name = "";
 	private String email;
 	
-	Person(String name){
-		this.name = name;
+	Person(){
 	}
 	
 	public String getName(){
 		return name;
 	}
 
-	
+	public void setName(String name){
+		this.name = name;
+	}
+
 	public String getEmail(){
 		return email;
 	}

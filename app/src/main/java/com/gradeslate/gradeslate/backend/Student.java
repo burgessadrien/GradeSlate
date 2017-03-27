@@ -3,8 +3,8 @@ package com.gradeslate.gradeslate.backend;
 import java.io.Serializable;
 
 public class Student extends Person implements Serializable {
-		Student(String name) {
-			super(name);
+		Student() {
+			super();
 		}
 
 		private String phNum;

@@ -12,11 +12,12 @@ import android.widget.Toast;
 import com.gradeslate.gradeslate.backend.FileSystem;
 
 public class course_info extends AppCompatActivity {
-
+    private String course;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_info);
+        course = getIntent().getStringExtra("course");
     }
 
 
@@ -28,8 +29,9 @@ public class course_info extends AppCompatActivity {
     }
 
     public void toProf(View view){
-        Intent intent = new Intent(this, ProfInfo.class);
-        startActivity(intent);
+        Intent goToNextActivity = new Intent(view.getContext(), ProfInfo.class);
+        FileSystem.getInstance().setCourse(course);
+        startActivity(goToNextActivity);
     }
 
     @Override

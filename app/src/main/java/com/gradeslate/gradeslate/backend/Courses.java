@@ -37,8 +37,8 @@ public class Courses implements Serializable{
 	
 	
 	public float calcGPA(){
-		int sumGPA = 0;
-		int count = courses.size();
+		float sumGPA = 0;
+		float count = courses.size();
 		
 		for(Course calc:courses){
 			if(calc.letGrd() == 'A'){

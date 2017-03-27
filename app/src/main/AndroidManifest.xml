@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".course_info" />
+        <activity android:name=".ProfInfo"/>
         <activity android:name=".EvaluationsPage" />
         <activity
             android:name=".CoursesList"
@@ -28,7 +29,8 @@
         <activity
             android:name=".GradeList"
             android:label="@string/title_activity_grade_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".SemesterInfo"></activity>
     </application>
 
 </manifest>

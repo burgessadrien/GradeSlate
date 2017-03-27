@@ -8,7 +8,7 @@ public class Team implements Serializable {
 	Team(){}
 	
 	public void addMem(String name){
-		Student stu = new Student(name);
+		Student stu = new Student();
 		members.add(stu);
 	}
 	

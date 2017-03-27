@@ -22,14 +22,6 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <Button
-            android:id="@+id/info_semester"
-            android:layout_width="wrap_content"
-            android:onClick="semesterInfo"
-            android:layout_gravity="right"
-            android:layout_height="wrap_content"
-            android:text="Semester Info" />
-
     </android.support.design.widget.AppBarLayout>
 
 

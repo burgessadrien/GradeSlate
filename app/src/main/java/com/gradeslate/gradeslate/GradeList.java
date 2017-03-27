@@ -24,7 +24,7 @@ public class GradeList extends AppCompatActivity {
     private EditText mGrade;
     private ArrayList<String> gradeNames;
     private String grade;
-    private int perWorth = 0;
+    private float perWorth = 0;
     private ArrayAdapter<String> adapter;
     private EditText worth;
     private String course;
@@ -75,7 +75,7 @@ public class GradeList extends AppCompatActivity {
                             // Toast.makeText(courseList.this,
                             //       R.string.semesterAddedMsg, Toast.LENGTH_SHORT).show();
                             grade = mGrade.getText().toString();
-                            perWorth = Integer.parseInt(worth.getText().toString());
+                            perWorth = Float.parseFloat(worth.getText().toString());
                             FileSystem.getInstance().getGrades().addEval(grade, perWorth);
                             if(gradeNames.get(0)==empty) {
                                 gradeNames.clear();
@@ -104,12 +104,6 @@ public class GradeList extends AppCompatActivity {
         });
     }//end of onFabClick
 
-
-    public void courseInfo(View view){
-        Intent goToNextActivity = new Intent(view.getContext(), course_info.class);
-        FileSystem.getInstance().setCourse(course);
-        startActivity(goToNextActivity);
-    }
 
 
     public void addNames(){

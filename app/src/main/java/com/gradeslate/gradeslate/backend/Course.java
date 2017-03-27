@@ -19,10 +19,7 @@ public class Course implements Serializable {
 	public Course(String title, int credHour){
 		this.title = title;
 		this.credHour = credHour;
-	}
-	
-	public void setProf(String name){
-		prof = new Professor(name);
+		prof = new Professor();
 	}
 	
 	public Professor getProf(){

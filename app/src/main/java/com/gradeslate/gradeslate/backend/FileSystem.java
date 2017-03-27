@@ -93,6 +93,9 @@ public class FileSystem {
             }
         }
     }
+    public Course getCourse(){
+        return course;
+    }
 
 
 

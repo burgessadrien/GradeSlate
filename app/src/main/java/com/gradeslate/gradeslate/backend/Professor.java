@@ -9,8 +9,8 @@ public class Professor extends Person implements Serializable {
 		private int offLen;
 	
 		
-		Professor(String name){
-			super(name);
+		Professor(){
+			super();
 		}
 		
 		public void setOffLoc(String location){

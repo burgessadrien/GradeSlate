@@ -35,7 +35,6 @@ public class Courses implements Serializable{
 		return semester;
 	}
 	
-	
 	public float calcGPA(){
 		float sumGPA = 0;
 		float count = courses.size();

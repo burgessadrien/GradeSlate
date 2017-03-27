@@ -9,8 +9,7 @@ public class Course implements Serializable {
 	private Professor prof;
 	private String title;
 	private int credHour = 0;
-	private String description;
-	
+
 	/********************
 	 * 
 	 * adding times for labs, tests, assignments and other
@@ -38,13 +37,28 @@ public class Course implements Serializable {
 		return title;
 	}
 
-	
-	public void inDes(String des){
-		this.description = des;
-	}
-	
-	public String getDes(){
-		return description;
+
+	/****************************
+	 *
+	 * The following method is used for calculating the desired average
+	 *
+	 */
+
+	public float desGrd(float des){
+		float sumGrd = 0;
+		int numEntGrd = 0;
+		int numGrd = 0;
+		for(Evaluation eval: grades.getEvaluations()){
+			if(eval.entered() == true){
+				numEntGrd ++;
+				sumGrd += eval.getGrade();
+			}
+			numGrd++;
+		}
+
+		float max = des*numGrd;
+		float answer = (max - sumGrd)/(numGrd - numEntGrd);
+		return answer;
 	}
 	
 	public char letGrd(){

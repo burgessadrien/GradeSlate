@@ -6,6 +6,7 @@ public class Evaluation implements Serializable {
 	private String evalType;
 	private float grade;
 	private float worth;
+	private boolean grdEnt;
 	private Team team;
 	/*******
 	 * 
@@ -16,6 +17,7 @@ public class Evaluation implements Serializable {
 		this.evalType = type;
 		this.worth = worth;
 		team = new Team();
+		grdEnt = false;
 	}
 	
 	public void setEval(String type){
@@ -36,8 +38,15 @@ public class Evaluation implements Serializable {
 	}
 	
 	public void setGrade(float grade){
-		if((grade >=0) && (grade <= 100))
+		if((grade >=0) && (grade <= 100)) {
 			this.grade = grade;
+			grdEnt = true;
+		}
+
+	}
+
+	public boolean entered(){
+		return grdEnt;
 	}
 	
 	public float getGrade(){

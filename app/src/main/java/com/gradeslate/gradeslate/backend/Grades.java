@@ -58,6 +58,7 @@ public class Grades implements Serializable {
 	}
 
 	public float getAvgGrds(){
+		average();
 		return avgGrd;
 	}
 	

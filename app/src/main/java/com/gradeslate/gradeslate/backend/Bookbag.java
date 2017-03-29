@@ -1,31 +1,37 @@
 package com.gradeslate.gradeslate.backend;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Bookbag implements Serializable {
-	private ArrayList<Item> items = new ArrayList<Item>();
-	
-	Bookbag(){}
-	
-	public void addItem(String type){
-		Item next = new Item(type);
-		items.add(next);
-	}
-	
-	public Item getItem(String find){
-		for(Item found:items)
-			if(found.getType() == find)
-				return found;
-		
-		return null;
-	}
-	
-	public int getTotalCost(){
-		int sum = 0;
-		for(Item cost:items)
-			sum += cost.getCost();
-		return sum;
-	}
-	
-	//more methods to be added later
+    private ArrayList<Item> items;
+
+    Bookbag() {
+        this.items = new ArrayList();
+    }
+
+    public void addItem(String type) {
+        this.items.add(new Item(type));
+    }
+
+    public Item getItem(String find) {
+        Iterator it = this.items.iterator();
+        while (it.hasNext()) {
+            Item found = (Item) it.next();
+            if (found.getType() == find) {
+                return found;
+            }
+        }
+        return null;
+    }
+
+    public int getTotalCost() {
+        int sum = 0;
+        Iterator it = this.items.iterator();
+        while (it.hasNext()) {
+            sum += ((Item) it.next()).getCost();
+        }
+        return sum;
+    }
 }

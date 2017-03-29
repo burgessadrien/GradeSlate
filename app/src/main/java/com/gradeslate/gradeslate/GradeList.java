@@ -45,11 +45,16 @@ public class GradeList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 grade = String.valueOf(parent.getItemAtPosition(position));
-                String found = findGrade(position);
-                if(found != null) {
-                    Toast.makeText(GradeList.this,
-                            found, Toast.LENGTH_SHORT).show();
-                }
+                try {
+                    String found = findGrade(position);
+                    if (found != null) {
+                        Toast.makeText(GradeList.this,
+                                grade, Toast.LENGTH_SHORT).show();
+                        FileSystem.getInstance().setGrade(found);
+                        Intent goToNextActivity = new Intent(view.getContext(), grade_info.class);
+                        startActivity(goToNextActivity);
+                    }
+                }catch(Exception e){}
             }
         });
 

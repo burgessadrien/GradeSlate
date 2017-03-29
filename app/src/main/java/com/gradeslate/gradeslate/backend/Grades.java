@@ -1,85 +1,75 @@
 package com.gradeslate.gradeslate.backend;
+
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Grades implements Serializable {
-	private ArrayList<Evaluation> grades = new ArrayList<Evaluation>();
-	private float avgGrd, curGrd, gpa;
-	private char letGrd;
-	
-	Grades(){}
-	
-	public void average(){
-		float sum = 0;
-		float num = 0;
-		
-		for(Evaluation grade:grades){
-			num++;
-			sum += grade.getGrade();
-		}
-		
-		avgGrd = sum/num;
-		
-	}
+    private float avgGrd;
+    private float curGrd;
+    private float gpa;
+    private ArrayList<Evaluation> grades;
+    private char letGrd;
 
-	public ArrayList<Evaluation> getGrades() {
-		return grades;
-	}
+    Grades() {
+        this.grades = new ArrayList();
+    }
 
-	public void letter(){
-		average();
-		
-		if((avgGrd >= 80)&&(avgGrd <= 100)){
-			letGrd = 'A';
-		}
-		
-		else if((avgGrd >= 65)&&(avgGrd <= 79)){
-			letGrd = 'B';
-		}
-		
-		else if((avgGrd >= 55)&&(avgGrd <= 64)){
-			letGrd = 'C';
-		}
-		
-		else if((avgGrd >= 50)&&(avgGrd <= 54)){
-			letGrd = 'D';
-		}
-		
-		else{
-			letGrd = 'F';
-		}
-		
-	}
-	
-	public void curGrd(){
-		for(Evaluation grade:grades)
-			curGrd += grade.totalGrdPer();
-	}
+    public void average() {
+        float sum = 0.0f;
+        float num = 0.0f;
+        Iterator it = this.grades.iterator();
+        while (it.hasNext()) {
+            num += 1.0f;
+            sum += ((Evaluation) it.next()).getGrade();
+        }
+        this.avgGrd = sum / num;
+    }
 
-	public float getAvgGrds(){
-		average();
-		return avgGrd;
-	}
-	
-	public float getCurGrd(){
-		return curGrd;
-	}
-	
-	public char getLetGrd(){
-		return letGrd;
-	}
-	
-	public void addEval(String type, float worth){
-		Evaluation next = new Evaluation(type, worth);
-		grades.add(next);
-	}
+    public ArrayList<Evaluation> getGrades() {
+        return this.grades;
+    }
 
-	public ArrayList<Evaluation> getEvaluations(){
-		return grades;
-	}
+    public void letter() {
+        average();
+        if (this.avgGrd >= 80.0f && this.avgGrd <= 100.0f) {
+            this.letGrd = 'A';
+        } else if (this.avgGrd >= 65.0f && this.avgGrd <= 79.0f) {
+            this.letGrd = 'B';
+        } else if (this.avgGrd >= 55.0f && this.avgGrd <= 64.0f) {
+            this.letGrd = 'C';
+        } else if (this.avgGrd < 50.0f || this.avgGrd > 54.0f) {
+            this.letGrd = 'F';
+        } else {
+            this.letGrd = 'D';
+        }
+    }
 
+    public void curGrd() {
+        Iterator it = this.grades.iterator();
+        while (it.hasNext()) {
+            this.curGrd += ((Evaluation) it.next()).totalGrdPer();
+        }
+    }
 
-	
-	
+    public float getAvgGrds() {
+        average();
+        return this.avgGrd;
+    }
+
+    public float getCurGrd() {
+        return this.curGrd;
+    }
+
+    public char getLetGrd() {
+        return this.letGrd;
+    }
+
+    public void addEval(String type, float worth) {
+        this.grades.add(new Evaluation(type, worth));
+    }
+
+    public ArrayList<Evaluation> getEvaluations() {
+        return this.grades;
+    }
 }

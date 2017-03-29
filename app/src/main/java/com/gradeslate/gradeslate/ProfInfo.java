@@ -16,32 +16,34 @@ public class ProfInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prof_info);
-        EditText editText =  (EditText) findViewById(R.id.nameHint);
-        if(FileSystem.getInstance().getCourse().getProf().getName() != "") {
-            editText.setHint(FileSystem.getInstance().getCourse().getProf().getName());
+        EditText editName = (EditText) findViewById(R.id.nameHint);
+        EditText editLoc = (EditText) findViewById(R.id.locationHint);
+        EditText editEmail = (EditText) findViewById(R.id.emailHint);
+        EditText editHour = (EditText) findViewById(R.id.hourHint);
+        String name = FileSystem.getInstance().getCourse().getProf().getName();
+        String email = FileSystem.getInstance().getCourse().getProf().getEmail();
+        String hour = FileSystem.getInstance().getCourse().getProf().getOffHour();
+        String location = FileSystem.getInstance().getCourse().getProf().getOffLoc();
+        if ((name.replaceAll("\\s+","") != null) && (name.replaceAll("\\s+","") != "")) {
+            editName.setHint("Name");
+        } else {
+            editName.setHint(name);
         }
-        else{
-            editText.setHint("Name");
+        if ((email.replaceAll("\\s+","") != null) && (email.replaceAll("\\s+","") != "")) {
+            editEmail.setHint("Email");
+        } else {
+            editEmail.setHint(email);
         }
-        if(FileSystem.getInstance().getCourse().getProf().getEmail() != "") {
-            editText.setHint(FileSystem.getInstance().getCourse().getProf().getEmail());
+        if ((hour.replaceAll("\\s+","") != null) && (hour.replaceAll("\\s+","") != "")) {
+            editHour.setHint("Hour");
+        } else {
+            editHour.setHint(hour);
         }
-        else{
-            editText.setHint("Email");
+        if ((location.replaceAll("\\s+","") != null) && (location.replaceAll("\\s+","") != "")) {
+            editLoc.setHint("Office Location");
+        } else {
+            editLoc.setHint(location);
         }
-        if(FileSystem.getInstance().getCourse().getProf().getOffHour() != "") {
-            editText.setHint(FileSystem.getInstance().getCourse().getProf().getOffHour());
-        }
-        else{
-            editText.setHint("Hour");
-        }
-        if(FileSystem.getInstance().getCourse().getProf().getOffLoc() != "") {
-            editText.setHint(FileSystem.getInstance().getCourse().getProf().getOffLoc());
-        }
-        else{
-            editText.setHint("Office Location");
-        }
-
         editProfNameOnButtonClick();
         editEmailOnButtonClick();
         editLocationOnButtonClick();

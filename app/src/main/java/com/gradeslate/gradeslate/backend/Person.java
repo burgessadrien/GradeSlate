@@ -1,27 +1,30 @@
 package com.gradeslate.gradeslate.backend;
 
+import com.gradeslate.gradeslate.BuildConfig;
 import java.io.Serializable;
 
 public class Person implements Serializable {
-	private String name = "";
-	private String email;
-	
-	Person(){
-	}
-	
-	public String getName(){
-		return name;
-	}
+    private String email;
+    private String name;
 
-	public void setName(String name){
-		this.name = name;
-	}
+    Person() {
+        this.name = "Name";
+        this.email = "Email";
+    }
 
-	public String getEmail(){
-		return email;
-	}
-	
-	public void setEmail(String email){
-		this.email = email;
-	}
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

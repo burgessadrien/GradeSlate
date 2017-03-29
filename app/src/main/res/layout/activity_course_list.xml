@@ -10,21 +10,6 @@
         layout="@layout/content_course_list"
         android:layout_height="match_parent" />
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -35,6 +20,100 @@
         app:backgroundTint="?android:attr/colorPrimary"
         app:srcCompat="@android:drawable/ic_input_add" />
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="80dp"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:weightSum="4"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <TextView
+                android:id="@+id/displaySemesterName"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="left"
+                android:text="Hello"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/showGPA"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:text="GPA"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/showSemesterAverage"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:text="Average"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar2"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:weightSum="1"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <TextView
+                android:id="@+id/blankSpace"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:text="Hello"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/displayGPA"
+                android:layout_width="80dp"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:textAlignment="center"
+                android:text="Hello"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/displaySemesterAverage"
+                android:layout_width="80dp"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="India Hello"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>

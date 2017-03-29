@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/profInfo"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+
+    <TextView
+        android:id="@+id/evalName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="Evaluation"
+        android:textColor="#000000"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp">
+
+        <Button
+            android:id="@+id/typeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="Edit"
+            />
+
+        <EditText
+            android:id="@+id/typeHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/typeButton"
+            android:layout_alignParentStart="true"
+            android:inputType="textPersonName"
+            android:textSize="30dp"
+            android:gravity="bottom"
+            android:layout_toStartOf="@+id/typeButton" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/perWorth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="Percent of Grade"
+        android:textColor="#000000"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp">
+
+        <Button
+            android:id="@+id/editWorth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="Edit" />
+
+        <EditText
+            android:id="@+id/worthHint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/editWorth"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/editWorth"
+            android:layout_toStartOf="@+id/editWorth"
+            android:gravity="bottom"
+            android:inputType="textPersonName"
+            android:textSize="28dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/grade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="Percentage"
+        android:textColor="#000000"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp">
+
+        <Button
+            android:id="@+id/gradeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="Edit"
+            />
+
+        <EditText
+            android:id="@+id/gradeHint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/gradeButton"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/gradeButton"
+            android:layout_toStartOf="@+id/gradeButton"
+            android:inputType="textPersonName"
+            android:textSize="28dp"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/editDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="Due Date"
+        android:textColor="#000000"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp">
+
+        <Button
+            android:id="@+id/dateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="Edit"
+            />
+
+        <EditText
+            android:id="@+id/dateHint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:inputType="textPersonName"
+            android:layout_toStartOf="@+id/dateButton"
+            android:textSize="28dp"
+            android:gravity="bottom"
+            android:layout_alignBottom="@+id/dateButton" />
+
+    </RelativeLayout>
+</LinearLayout>

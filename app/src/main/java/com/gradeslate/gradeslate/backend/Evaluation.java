@@ -12,8 +12,8 @@ public class Evaluation implements Serializable {
     private float worth;
 
     public Evaluation(String type, float worth) {
-        this.worth = 0.0f;
-        this.due = BuildConfig.FLAVOR;
+        this.worth = 0;
+        this.due = "";
         this.evalType = type;
         this.worth = worth;
         this.team = new Team();
@@ -37,7 +37,7 @@ public class Evaluation implements Serializable {
     }
 
     public void setGrade(float grade) {
-        if (grade >= 0.0f && grade <= 100.0f) {
+        if (grade >= 0 && grade <= 100) {
             this.grade = grade;
             this.grdEnt = true;
         }
@@ -68,6 +68,6 @@ public class Evaluation implements Serializable {
     }
 
     public float totalGrdPer() {
-        return (this.grade / 100.0f) * this.worth;
+        return (this.grade / 100) * this.worth;
     }
 }

@@ -20,6 +20,19 @@ public class course_info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_info);
         course = getIntent().getStringExtra("course");
+        TextView courseName = (TextView) findViewById(R.id.displayCourseName);
+        courseName.setText(course);
+        double average = Math.round(FileSystem.getInstance().getCourse().getGrades().getAvgGrds()*100.0)/100.0;
+        String disAverage = String.valueOf(average);
+        double current = Math.round(FileSystem.getInstance().getCourse().getGrades().getCurGrd()*100.0)/100.0;
+        String disCurrent = String.valueOf(current);
+        char letter = FileSystem.getInstance().getCourse().getGrades().getLetGrd();
+        TextView displayAverage = (TextView) findViewById(R.id.displayAverage);
+        displayAverage.setText(disAverage);
+        TextView displayLetter = (TextView) findViewById(R.id.displayLetter);
+        displayLetter.setText(String.valueOf(letter));
+        TextView displayCurrent = (TextView) findViewById(R.id.displayCurrent);
+        displayCurrent.setText(disCurrent);
 
     }
 

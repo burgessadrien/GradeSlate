@@ -19,7 +19,6 @@
         </activity>
         <activity android:name=".course_info" />
         <activity android:name=".ProfInfo"/>
-        <activity android:name=".EvaluationsPage" />
         <activity
             android:name=".CoursesList"
             android:theme="@style/AppTheme.NoActionBar" />

@@ -79,30 +79,30 @@ public class GradeList extends AppCompatActivity {
                 mAdd.setOnClickListener(new View.OnClickListener()  {
                     @Override
                     public void onClick(View view) {
-                        if(!mGrade.getText().toString().isEmpty()){
-                            // Toast.makeText(courseList.this,
-                            //       R.string.semesterAddedMsg, Toast.LENGTH_SHORT).show();
-                            grade = mGrade.getText().toString();
-                            perWorth = Float.parseFloat(worth.getText().toString());
-                            FileSystem.getInstance().getGrades().addEval(grade, perWorth);
-                            if(gradeNames.get(0)==empty) {
-                                gradeNames.clear();
-                                gradeNames.add(grade);
-                            }
-                            else{
-                                gradeNames.add(grade);
-                            }
-                            adapter.notifyDataSetChanged();
-                            String test = grade;
-                            Toast.makeText(GradeList.this,
-                                    test, Toast.LENGTH_SHORT).show();
-                            dialog.dismiss();
+                        try {
+                            if (!mGrade.getText().toString().isEmpty()) {
+                                // Toast.makeText(courseList.this,
+                                //       R.string.semesterAddedMsg, Toast.LENGTH_SHORT).show();
+                                grade = mGrade.getText().toString();
+                                perWorth = Float.parseFloat(worth.getText().toString());
+                                FileSystem.getInstance().getGrades().addEval(grade, perWorth);
+                                if (gradeNames.get(0) == empty) {
+                                    gradeNames.clear();
+                                    gradeNames.add(grade);
+                                } else {
+                                    gradeNames.add(grade);
+                                }
+                                adapter.notifyDataSetChanged();
+                                String test = grade;
+                                Toast.makeText(GradeList.this,
+                                        test, Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
 
-                        }
-                        else{
-                            Toast.makeText(GradeList.this,
-                                    R.string.addGradeError, Toast.LENGTH_SHORT).show();
-                        }
+                            } else {
+                                Toast.makeText(GradeList.this,
+                                        R.string.addGradeError, Toast.LENGTH_SHORT).show();
+                            }
+                        }catch(Exception e){}
                     }
                 });
                 dialog.setView(mView);

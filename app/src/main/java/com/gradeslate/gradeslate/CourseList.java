@@ -82,32 +82,32 @@ public class CourseList extends AppCompatActivity {
                 mAdd.setOnClickListener(new View.OnClickListener()  {
                     @Override
                     public void onClick(View view) {
-                        if(!mCourse.getText().toString().isEmpty()){
-                            course = mCourse.getText().toString();
-                            credHour = Integer.parseInt(editCred.getText().toString());
-                            if((credHour < 0)|(credHour > 5)){
+                        try {
+                            if (!mCourse.getText().toString().isEmpty()) {
+                                course = mCourse.getText().toString();
+                                credHour = Integer.parseInt(editCred.getText().toString());
+                                if ((credHour < 0) | (credHour > 5)) {
+                                    dialog.dismiss();
+                                }
+
+                                FileSystem.getInstance().addCourse(course, credHour);
+                                if (courseNames.get(0) == empty) {
+                                    courseNames.clear();
+                                    courseNames.add(course);
+                                } else {
+                                    courseNames.add(course);
+                                }
+                                adapter.notifyDataSetChanged();
+                                String test = course;
+                                Toast.makeText(CourseList.this,
+                                        test, Toast.LENGTH_SHORT).show();
                                 dialog.dismiss();
-                            }
 
-                            FileSystem.getInstance().addCourse(course, credHour);
-                            if(courseNames.get(0)==empty) {
-                                courseNames.clear();
-                                courseNames.add(course);
+                            } else {
+                                Toast.makeText(CourseList.this,
+                                        R.string.addCourseError, Toast.LENGTH_SHORT).show();
                             }
-                            else{
-                                courseNames.add(course);
-                            }
-                            adapter.notifyDataSetChanged();
-                            String test = course;
-                            Toast.makeText(CourseList.this,
-                                    test, Toast.LENGTH_SHORT).show();
-                            dialog.dismiss();
-
-                        }
-                        else{
-                            Toast.makeText(CourseList.this,
-                                    R.string.addCourseError, Toast.LENGTH_SHORT).show();
-                        }
+                        }catch(Exception e){}
                     }
                 });
                 dialog.setView(mView);

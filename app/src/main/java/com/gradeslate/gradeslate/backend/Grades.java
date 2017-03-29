@@ -64,6 +64,8 @@ public class Grades implements Serializable {
     }
 
     public char getLetGrd() {
+        average();
+        letter();
         return this.letGrd;
     }
 

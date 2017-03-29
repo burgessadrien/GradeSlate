@@ -46,13 +46,14 @@ public class CourseList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 try {
-                course = String.valueOf(parent.getItemAtPosition(position));
-                    FileSystem.getInstance().setGrades(course);
-                    FileSystem.getInstance().setCourse(course);
-                    String found = findCourse(position);
+                    String found = null;
+                        course = String.valueOf(parent.getItemAtPosition(position));
+                        FileSystem.getInstance().setGrades(course);
+                        FileSystem.getInstance().setCourse(course);
+                        found = findCourse(position);
+
                     if (found != null) {
-                        Toast.makeText(CourseList.this,
-                                course, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CourseList.this, course, Toast.LENGTH_SHORT).show();
                         Intent goToNextActivity = new Intent(view.getContext(), course_info.class);
                         goToNextActivity.putExtra("course", course);
                         startActivity(goToNextActivity);

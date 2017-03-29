@@ -34,26 +34,24 @@ public class FileSystem {
         this.grades.addEval(name, (float) worth);
     }
 
-    public Courses findSemester(String semester) {
-        Iterator it = semesters.iterator();
-        while (it.hasNext()) {
-            Courses sem = (Courses) it.next();
-            if (sem.getName() == semester) {
+    public Courses findSemester(String semester){
+        for(Courses sem:semesters)
+            if( sem.getName() == semester)
                 return sem;
-            }
-        }
         return null;
     }
 
-    public void setSemester(String semester) {
-        Iterator it = semesters.iterator();
-        while (it.hasNext()) {
-            Courses find = (Courses) it.next();
-            if (find.getName() == semester) {
+
+
+    public void setSemester(String semester){
+        for(Courses find:semesters){
+            if(find.getName()==semester){
                 this.semester = find;
             }
         }
     }
+
+
 
     public void addSemester(String semester) {
         semesters.add(new Courses(semester));
@@ -71,21 +69,16 @@ public class FileSystem {
         this.courses.add(new Course(course, credHour));
     }
 
-    public void setCourses(String semester) {
-        Iterator it = semesters.iterator();
-        while (it.hasNext()) {
-            Courses sem = (Courses) it.next();
-            if (sem.getName() == semester) {
-                this.courses = sem.getCourses();
-            }
-        }
+    public void setCourses(String semester){
+        for(Courses sem:semesters)
+            if( sem.getName() == semester)
+                courses = sem.getCourses();
     }
 
-    public void setCourse(String course) {
-        Iterator it = this.courses.iterator();
-        while (it.hasNext()) {
-            Course find = (Course) it.next();
-            if (find.getTitle() == course) {
+
+    public void setCourse(String course){
+        for(Course find:courses){
+            if(find.getTitle()==course){
                 this.course = find;
             }
         }
@@ -95,15 +88,12 @@ public class FileSystem {
         return this.course;
     }
 
-    public void setGrades(String course) {
-        Iterator it = this.courses.iterator();
-        while (it.hasNext()) {
-            Course cour = (Course) it.next();
-            if (cour.getTitle() == course) {
-                this.grades = cour.getGrades();
-            }
-        }
+    public void setGrades(String course){
+        for(Course cour:courses)
+            if( cour.getTitle() == course)
+                grades = cour.getGrades();
     }
+
 
     public Grades getGrades() {
         return this.grades;

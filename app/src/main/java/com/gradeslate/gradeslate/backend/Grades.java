@@ -7,12 +7,14 @@ import java.util.Iterator;
 public class Grades implements Serializable {
     private float avgGrd;
     private float curGrd;
-    private float gpa;
     private ArrayList<Evaluation> grades;
     private char letGrd;
 
     Grades() {
         this.grades = new ArrayList();
+        this.avgGrd = 100;
+        this.curGrd = 0;
+        this.letGrd = 'A';
     }
 
     public void average() {

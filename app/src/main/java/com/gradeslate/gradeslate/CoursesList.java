@@ -45,14 +45,19 @@ public class CoursesList extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                try {
                 semester = findSemester(position);
-                FileSystem.getInstance().setCourses(semester);
-                if(semester != null) {
-                  Toast.makeText(CoursesList.this,
-                           semester, Toast.LENGTH_SHORT).show();
-                    Intent goToNextActivity = new Intent(view.getContext(), CourseList.class);
-                    goToNextActivity.putExtra("semester", semester);
-                    startActivity(goToNextActivity);
+                    FileSystem.getInstance().setCourses(semester);
+                    if (semester != null) {
+                        Toast.makeText(CoursesList.this,
+                                semester, Toast.LENGTH_SHORT).show();
+                        Intent goToNextActivity = new Intent(view.getContext(), CourseList.class);
+                        goToNextActivity.putExtra("semester", semester);
+                        startActivity(goToNextActivity);
+                    }
+                }catch(Exception e){
+                    Toast.makeText(CoursesList.this,
+                            "Add Semester", Toast.LENGTH_SHORT).show();
                 }
 
             }

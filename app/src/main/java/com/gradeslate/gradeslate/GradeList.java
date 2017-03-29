@@ -44,8 +44,8 @@ public class GradeList extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                grade = String.valueOf(parent.getItemAtPosition(position));
                 try {
+                grade = String.valueOf(parent.getItemAtPosition(position));
                     String found = findGrade(position);
                     if (found != null) {
                         Toast.makeText(GradeList.this,
@@ -54,7 +54,10 @@ public class GradeList extends AppCompatActivity {
                         Intent goToNextActivity = new Intent(view.getContext(), grade_info.class);
                         startActivity(goToNextActivity);
                     }
-                }catch(Exception e){}
+                }catch(Exception e){
+                    Toast.makeText(GradeList.this,
+                            "Add Grade", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

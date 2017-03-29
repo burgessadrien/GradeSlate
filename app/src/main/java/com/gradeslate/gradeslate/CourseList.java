@@ -45,16 +45,21 @@ public class CourseList extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                try {
                 course = String.valueOf(parent.getItemAtPosition(position));
-                FileSystem.getInstance().setGrades(course);
-                FileSystem.getInstance().setCourse(course);
-                String found = findCourse(position);
-                if(found != null) {
+                    FileSystem.getInstance().setGrades(course);
+                    FileSystem.getInstance().setCourse(course);
+                    String found = findCourse(position);
+                    if (found != null) {
+                        Toast.makeText(CourseList.this,
+                                course, Toast.LENGTH_SHORT).show();
+                        Intent goToNextActivity = new Intent(view.getContext(), course_info.class);
+                        goToNextActivity.putExtra("course", course);
+                        startActivity(goToNextActivity);
+                    }
+                }catch(Exception e){
                     Toast.makeText(CourseList.this,
-                            course, Toast.LENGTH_SHORT).show();
-                    Intent goToNextActivity = new Intent(view.getContext(), course_info.class);
-                    goToNextActivity.putExtra("course", course);
-                    startActivity(goToNextActivity);
+                            "Add Course", Toast.LENGTH_SHORT).show();
                 }
             }
         });

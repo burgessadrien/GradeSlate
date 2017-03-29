@@ -16,11 +16,11 @@ public class Grades implements Serializable {
     }
 
     public void average() {
-        float sum = 0.0f;
-        float num = 0.0f;
+        float sum = 0;
+        float num = 0;
         Iterator it = this.grades.iterator();
         while (it.hasNext()) {
-            num += 1.0f;
+            num += 1;
             sum += ((Evaluation) it.next()).getGrade();
         }
         this.avgGrd = sum / num;

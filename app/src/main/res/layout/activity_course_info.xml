@@ -5,44 +5,106 @@
     android:layout_height="fill_parent"
     android:paddingBottom="15dp"
     android:orientation="vertical" >
-    <!--
+    <TextView
+        android:id="@+id/displayCourseName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#000000"
+        android:textAlignment="center"
+        android:textSize="30dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:orientation="horizontal">
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="67dp"
+            android:id="@+id/linearLayout"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            android:layout_marginBottom="@+id/linearLayout2"
-            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/showAverage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Average"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="20dp" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="@+id/linearLayout2"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <TextView
+                android:id="@+id/displayAverage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="30dp" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/showLet"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Letter"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="20dp" />
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
 
-                <TextView
-                    android:id="@+id/displayLetter"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="3.43"
-                    android:textAlignment="center"
-                    android:textSize="30dp" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/showCurrent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Current"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="20dp" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/displayCurrent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="30dp" />
+        </LinearLayout>
 
--->
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/showLet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Letter"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/displayLetter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:textAlignment="center"
+                android:textSize="30dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
     <Button
         android:id="@+id/profButton"
         android:layout_width="fill_parent"

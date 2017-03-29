@@ -4,12 +4,10 @@ import com.gradeslate.gradeslate.BuildConfig;
 import java.io.Serializable;
 
 public class Person implements Serializable {
-    private String email;
-    private String name;
+    private String email = "Name";
+    private String name = "Email";
 
     Person() {
-        this.name = "Name";
-        this.email = "Email";
     }
 
     public String getName() {

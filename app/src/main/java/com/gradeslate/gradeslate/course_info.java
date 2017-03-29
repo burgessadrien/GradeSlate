@@ -20,13 +20,7 @@ public class course_info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_info);
         course = getIntent().getStringExtra("course");
-        String name = FileSystem.getInstance().getCourse().getProf().getName();
-        Button profButton = (Button) findViewById(R.id.profButton);
-        if ((name.replaceAll("\\s+","") != null) && (name.replaceAll("\\s+","") != "")) {
-            profButton.setText(name);
-        } else {
-            profButton.setText("Professor");
-        }
+
     }
 
     public void calcAverage(View view) {
@@ -36,7 +30,7 @@ public class course_info extends AppCompatActivity {
             String res = String.valueOf(grade);
              if (grade > 100) {
                  res = "Futile";
-             } else if (grade <= 0) {
+             } else if (grade == 0) {
                   res = "Made It";
                 }
 

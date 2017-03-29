@@ -4,13 +4,12 @@ import com.gradeslate.gradeslate.BuildConfig;
 import java.io.Serializable;
 
 public class Professor extends Person implements Serializable {
-    private String offHour;
+    private String offHour = "Hour";
     private int offLen;
-    private String offLoc;
+    private String offLoc = "Location";
 
     Professor() {
-        this.offLoc = "Location";
-        this.offHour = "Hour";
+
     }
 
     public void setOffLoc(String location) {

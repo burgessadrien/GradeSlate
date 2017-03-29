@@ -25,24 +25,24 @@ public class ProfInfo extends AppCompatActivity {
         String hour = FileSystem.getInstance().getCourse().getProf().getOffHour();
         String location = FileSystem.getInstance().getCourse().getProf().getOffLoc();
         if ((name.replaceAll("\\s+","") != null) && (name.replaceAll("\\s+","") != "")) {
-            editName.setHint("Name");
-        } else {
             editName.setHint(name);
+        } else {
+            editName.setHint("Name");
         }
         if ((email.replaceAll("\\s+","") != null) && (email.replaceAll("\\s+","") != "")) {
-            editEmail.setHint("Email");
-        } else {
             editEmail.setHint(email);
+        } else {
+            editEmail.setHint("Email");
         }
         if ((hour.replaceAll("\\s+","") != null) && (hour.replaceAll("\\s+","") != "")) {
-            editHour.setHint("Hour");
-        } else {
             editHour.setHint(hour);
+        } else {
+            editHour.setHint("Hour");
         }
         if ((location.replaceAll("\\s+","") != null) && (location.replaceAll("\\s+","") != "")) {
-            editLoc.setHint("Office Location");
-        } else {
             editLoc.setHint(location);
+        } else {
+            editLoc.setHint("Location");
         }
         editProfNameOnButtonClick();
         editEmailOnButtonClick();

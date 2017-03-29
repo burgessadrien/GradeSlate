@@ -36,7 +36,7 @@ public class course_info extends AppCompatActivity {
             String res = String.valueOf(grade);
              if (grade > 100) {
                  res = "Futile";
-             } else if (grade == 0) {
+             } else if (grade <= 0) {
                   res = "Made It";
                 }
 

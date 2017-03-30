@@ -7,10 +7,12 @@ import java.util.Iterator;
 public class Courses implements Serializable {
     private ArrayList<Course> courses;
     private float gpa;
+    private float average;
     private String semester;
 
     public Courses(String semester) {
-        this.gpa = 0.0f;
+        this.gpa = 0;
+        this.average = 0;
         this.courses = new ArrayList();
         this.semester = semester;
     }
@@ -42,6 +44,20 @@ public class Courses implements Serializable {
         return this.semester;
     }
 
+    public float calcAverage(){
+        float sum = 0;
+        float result = 0;
+        float count = (float) this.courses.size();
+
+        for(Course calc: courses){
+            sum += calc.getGrades().getAvgGrds();
+            count++;
+        }
+        if(count != 0)
+            result = sum/count;
+        this.average = result;
+        return result;
+    }
     public float calcGPA() {
         float sumGPA = 0.0f;
         float count = (float) this.courses.size();

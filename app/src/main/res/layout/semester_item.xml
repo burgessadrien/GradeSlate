@@ -15,17 +15,4 @@
 
         />
 
-    <TextView
-        android:id="@+id/gpa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="enter gpa here" />
-
-    <TextView
-        android:id="@+id/semAvg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="enter average here" />
 </LinearLayout>

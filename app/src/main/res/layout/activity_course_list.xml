@@ -23,7 +23,6 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="80dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
 
@@ -36,22 +35,25 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
             <TextView
-                android:id="@+id/displaySemesterName"
-                android:layout_width="200dp"
+                android:id="@+id/displaySemester"
+                android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="left"
-                android:text="Hello"
+                android:gravity="center|center_vertical"
+                android:text="Semester"
+                android:layout_gravity="left"
+                android:layout_alignParentLeft="true"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_weight="2" />
 
             <TextView
                 android:id="@+id/showGPA"
-                android:layout_width="80dp"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_alignParentBottom="true"
+                android:textColor="#FFFFFF"
                 android:layout_centerHorizontal="true"
+                android:gravity="center|center_vertical"
                 android:layout_weight="1"
                 android:text="GPA"
                 android:textSize="20sp"
@@ -59,13 +61,15 @@
 
             <TextView
                 android:id="@+id/showSemesterAverage"
-                android:layout_width="80dp"
+                android:layout_width="119dp"
                 android:layout_height="match_parent"
                 android:text="Average"
-                android:layout_alignParentBottom="true"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="right"
+                android:layout_weight="2.06"
+                android:gravity="center|center_vertical"
+                android:layout_alignParentRight="true"
                 android:layout_centerHorizontal="true"
-                android:layout_weight="1"
-                android:layout_gravity="center"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -75,39 +79,45 @@
             android:id="@+id/toolbar2"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:weightSum="1"
+            android:weightSum="4"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
             <TextView
-                android:id="@+id/blankSpace"
-                android:layout_width="200dp"
+                android:id="@+id/displaySemesterName"
+                android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:text="Hello"
+                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="left"
+                android:gravity="center|center_vertical"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/displayGPA"
-                android:layout_width="80dp"
-                android:layout_gravity="center"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
-                android:textAlignment="center"
-                android:text="Hello"
-                android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
+                android:layout_weight="2.83"
+                android:gravity="center|center_vertical"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/displaySemesterAverage"
-                android:layout_width="80dp"
-                android:layout_gravity="center"
+                android:layout_width="119dp"
                 android:layout_height="match_parent"
-                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
                 android:layout_centerHorizontal="true"
-                android:text="India Hello"
-                android:textSize="15sp"
+                android:layout_gravity="right"
+                android:gravity="center|center_vertical"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
 

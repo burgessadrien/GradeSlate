@@ -15,11 +15,5 @@
 
         />
 
-    <TextView
-        android:id="@+id/average"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:layout_gravity="right"
-        android:text="enter average here" />
 
 </LinearLayout>

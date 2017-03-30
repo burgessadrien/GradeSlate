@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gradeslate.gradeslate.backend.FileSystem;
@@ -39,7 +40,17 @@ public class CourseList extends AppCompatActivity {
         semester = getIntent().getStringExtra("semester");
 
 
+        double average = Math.round(FileSystem.getInstance().calcAverage()*100.0)/100.0;
+        String disAverage = String.valueOf(average);
+        double gpa = Math.round(FileSystem.getInstance().calcGPA()*100.0)/100.0;
+        String disGPA = String.valueOf(gpa);
+        TextView nameText = (TextView) findViewById(R.id.displaySemesterName);
+        TextView gpaText = (TextView) findViewById(R.id.displayGPA);
+        TextView averageText = (TextView) findViewById(R.id.displaySemesterAverage);
         ListView listview = (ListView) findViewById(R.id.courseNames);
+        nameText.setText(semester);
+        gpaText.setText(disGPA);
+        averageText.setText(disAverage);
         adapter = new ArrayAdapter<String>(this, R.layout.course_item, R.id.course_name, courseNames);
         listview.setAdapter(adapter);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){

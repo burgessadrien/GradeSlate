@@ -13,10 +13,14 @@ public class FileSystem {
     private Evaluation grade;
     private Grades grades;
     private Courses semester;
+    private float average;
+    private float gpa;
 
     private FileSystem() {
         semesters = new ArrayList();
         this.courses = new ArrayList();
+        this.average = 0;
+        this.gpa = 0;
     }
 
     public static FileSystem getInstance() {
@@ -119,6 +123,53 @@ public class FileSystem {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public float calcAverage(){
+        float sum = 0;
+        float result = 0;
+        float count = this.courses.size();
+
+        for(Course calc: courses){
+            sum += calc.getGrades().getAvgGrds();
+        }
+        if(count != 0)
+            result = sum/count;
+        this.average = result;
+        return result;
+    }
+
+    public float calcGPA() {
+        float sumGPA = 0.0f;
+        float count = 0;
+        for(Course calc:courses){
+            count+=calc.getCredHour();
+            if (calc.letGrd() == 'A') {
+                sumGPA += (float) (calc.getCredHour() * 4);
+
+            } else if (calc.letGrd() == 'B') {
+                sumGPA += (float) (calc.getCredHour() * 3);
+
+            } else if (calc.letGrd() == 'C') {
+                sumGPA += (float) (calc.getCredHour() * 2);
+                count++;
+            } else if (calc.letGrd() == 'D') {
+                sumGPA += (float) (calc.getCredHour() * 1);
+
+            } else{
+                sumGPA += 0.0f;
+
+            }
+        }
+        if(count >= 0)
+            this.gpa = sumGPA / count;
+        else{
+            this.gpa=0;
+        }
+        if(this.gpa >4){
+            this.gpa = 4;
+        }
+        return this.gpa;
     }
 
     public void readSemesters(Context context) {

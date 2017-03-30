@@ -20,12 +20,18 @@ public class Grades implements Serializable {
     public void average() {
         float sum = 0;
         float num = 0;
-        Iterator it = this.grades.iterator();
-        while (it.hasNext()) {
-            num += 1;
-            sum += ((Evaluation) it.next()).getGrade();
+        for(Evaluation eval:grades){
+            if(eval.entered()==true) {
+                num += 1;
+                sum += eval.getGrade();
+            }
         }
-        this.avgGrd = sum / num;
+        if(num >0)
+            this.avgGrd = sum / num;
+        else{
+            this.avgGrd = 0;
+        }
+
     }
 
     public ArrayList<Evaluation> getGrades() {
@@ -41,17 +47,18 @@ public class Grades implements Serializable {
         } else if (this.avgGrd >= 55.0f && this.avgGrd <= 64.0f) {
             this.letGrd = 'C';
         } else if (this.avgGrd < 50.0f || this.avgGrd > 54.0f) {
-            this.letGrd = 'F';
-        } else {
             this.letGrd = 'D';
+        } else {
+            this.letGrd = 'F';
         }
     }
 
     public void curGrd() {
-        Iterator it = this.grades.iterator();
-        while (it.hasNext()) {
-            this.curGrd += ((Evaluation) it.next()).totalGrdPer();
+        float sum = 0;
+        for(Evaluation eval:grades){
+            sum+= eval.getGrade()*eval.getWorth()/100;
         }
+        this.curGrd = sum;
     }
 
     public float getAvgGrds() {
@@ -60,6 +67,7 @@ public class Grades implements Serializable {
     }
 
     public float getCurGrd() {
+        curGrd();
         return this.curGrd;
     }
 

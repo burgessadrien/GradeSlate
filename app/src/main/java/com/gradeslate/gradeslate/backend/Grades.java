@@ -48,7 +48,7 @@ public class Grades implements Serializable {
             this.letGrd = 'B';
         } else if (this.avgGrd >= 55.0f && this.avgGrd <= 64.0f) {
             this.letGrd = 'C';
-        } else if (this.avgGrd < 50.0f || this.avgGrd > 54.0f) {
+        } else if (this.avgGrd <= 50.0f || this.avgGrd >= 54.0f) {
             this.letGrd = 'D';
         } else {
             this.letGrd = 'F';

@@ -130,7 +130,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="center"
-        android:textSize="13dp"
+        android:textSize="15dp"
         android:text="Required Grade in Remaining Evaluations For Average"
         android:textColor="#FFFFFF" />
 

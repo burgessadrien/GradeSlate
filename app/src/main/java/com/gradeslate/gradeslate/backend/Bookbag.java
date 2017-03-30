@@ -13,7 +13,8 @@ public class Bookbag implements Serializable {
 
     public Boolean addItem(String type) {
         if(type != "") {
-            this.items.add(new Item(type));
+            Item newish= new Item(type);
+            this.items.add(newish);
             return true;
         }
         return false;

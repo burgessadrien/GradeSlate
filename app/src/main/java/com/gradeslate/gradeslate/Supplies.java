@@ -42,12 +42,10 @@ public class Supplies extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 try {
-                    item = String.valueOf(parent.getItemAtPosition(position));
                     String found = findItem(position);
                     if (found != null) {
                          Toast.makeText(Supplies.this,
                                 found, Toast.LENGTH_SHORT).show();
-                        FileSystem.getInstance().getCourse().getBag().addItem(found);
                     }
                 }catch(Exception e){
                     Toast.makeText(Supplies.this,
@@ -75,8 +73,6 @@ public class Supplies extends AppCompatActivity {
                     public void onClick(View view) {
                         try {
                             if (!mItem.getText().toString().isEmpty()) {
-                                // Toast.makeText(courseList.this,
-                                //       R.string.semesterAddedMsg, Toast.LENGTH_SHORT).show();
                                 item = mItem.getText().toString();
 
                                 Boolean add = FileSystem.getInstance().getCourse().getBag().addItem(item);
@@ -124,7 +120,7 @@ public class Supplies extends AppCompatActivity {
     }
 
     public String findItem(int position){
-        if(FileSystem.getInstance().getGrades().getEvaluations().get(position) != null){
+        if(FileSystem.getInstance().getCourse().getBag().getItem(position) != null){
             return FileSystem.getInstance().getCourse().getBag().getItem(position).getType();
         }
         return null;

@@ -81,28 +81,28 @@ public class CoursesList extends AppCompatActivity {
                 mAdd.setOnClickListener(new View.OnClickListener()  {
                     @Override
                     public void onClick( View view) {
-                        if(!mSemester.getText().toString().isEmpty()){
-                            semester = mSemester.getText().toString();
-                            Courses newSemester = new Courses(semester);
-                            FileSystem.getInstance().addSemester(semester);
-                            if(semesterNames.get(0)==empty) {
-                                semesterNames.clear();
-                                semesterNames.add(semester);
-                            }
-                            else{
-                                semesterNames.add(semester);
-                            }
-                            adapter.notifyDataSetChanged();
-                            String test = FileSystem.getInstance().getSemesters().get(FileSystem.getInstance().getSemesters().size()-1).getName();
-                            Toast.makeText(CoursesList.this,
-                                    test, Toast.LENGTH_SHORT).show();
-                            dialog.dismiss();
+                        try {
+                            if (!mSemester.getText().toString().isEmpty()) {
+                                semester = mSemester.getText().toString();
+                                Courses newSemester = new Courses(semester);
+                                FileSystem.getInstance().addSemester(semester);
+                                if (semesterNames.get(0) == empty) {
+                                    semesterNames.clear();
+                                    semesterNames.add(semester);
+                                } else {
+                                    semesterNames.add(semester);
+                                }
+                                adapter.notifyDataSetChanged();
+                                String test = FileSystem.getInstance().getSemesters().get(FileSystem.getInstance().getSemesters().size() - 1).getName();
+                                Toast.makeText(CoursesList.this,
+                                        test, Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
 
-                        }
-                        else{
-                            Toast.makeText(CoursesList.this,
-                                    R.string.errorSemesterMsg, Toast.LENGTH_SHORT).show();
-                        }
+                            } else {
+                                Toast.makeText(CoursesList.this,
+                                        R.string.errorSemesterMsg, Toast.LENGTH_SHORT).show();
+                            }
+                        }catch(Exception e){}
                     }
                 });
                 dialog.setView(mView);

@@ -49,8 +49,8 @@ public class CoursesList extends AppCompatActivity {
                 semester = findSemester(position);
                     FileSystem.getInstance().setCourses(semester);
                     if (semester != null) {
-                        Toast.makeText(CoursesList.this,
-                                semester, Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(CoursesList.this,
+                             //   semester, Toast.LENGTH_SHORT).show();
                         Intent goToNextActivity = new Intent(view.getContext(), CourseList.class);
                         goToNextActivity.putExtra("semester", semester);
                         startActivity(goToNextActivity);

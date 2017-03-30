@@ -4,8 +4,8 @@ import com.gradeslate.gradeslate.BuildConfig;
 import java.io.Serializable;
 
 public class Person implements Serializable {
-    private String email = "Name";
-    private String name = "Email";
+    private String email = "Email";
+    private String name = "Name";
 
     Person() {
     }

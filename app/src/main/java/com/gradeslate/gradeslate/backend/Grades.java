@@ -9,12 +9,14 @@ public class Grades implements Serializable {
     private float curGrd;
     private ArrayList<Evaluation> grades;
     private char letGrd;
+    private float taken;
 
     Grades() {
         this.grades = new ArrayList();
         this.avgGrd = 100;
         this.curGrd = 0;
         this.letGrd = 'A';
+        this.taken = 0;
     }
 
     public void average() {
@@ -77,8 +79,13 @@ public class Grades implements Serializable {
         return this.letGrd;
     }
 
-    public void addEval(String type, float worth) {
-        this.grades.add(new Evaluation(type, worth));
+    public Boolean addEval(String type, float worth) {
+        if(!((worth+taken)>100)){
+            this.grades.add(new Evaluation(type, worth));
+            taken += worth;
+            return true;
+        }
+        return false;
     }
 
     public ArrayList<Evaluation> getEvaluations() {

@@ -9,6 +9,7 @@
     <TextView
         android:id="@+id/course_name"
         android:layout_width="194dp"
+        android:textColor="#FFFFFF"
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:layout_gravity="left"

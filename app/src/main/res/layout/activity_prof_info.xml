@@ -3,6 +3,7 @@
     android:id="@+id/profInfo"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="#808080"
     android:orientation="vertical"
     android:weightSum="1">
 
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:text="Professor's Name"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         />
 
     <RelativeLayout
@@ -36,6 +37,7 @@
             android:layout_alignTop="@+id/nameButton"
             android:layout_alignParentStart="true"
             android:inputType="textPersonName"
+            android:textColorHint="#FFFFFF"
             android:textSize="30dp"
             android:gravity="bottom"
             android:layout_toStartOf="@+id/nameButton" />
@@ -47,7 +49,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:text="Email"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         />
 
     <RelativeLayout
@@ -69,6 +71,7 @@
             android:layout_height="match_parent"
             android:layout_alignBottom="@+id/updateEmail"
             android:layout_alignParentStart="true"
+            android:textColorHint="#FFFFFF"
             android:layout_alignTop="@+id/updateEmail"
             android:layout_toStartOf="@+id/updateEmail"
             android:inputType="textPersonName"
@@ -83,7 +86,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:text="Office Location"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         />
 
     <RelativeLayout
@@ -105,6 +108,7 @@
             android:layout_height="match_parent"
             android:layout_alignBottom="@+id/locationButton"
             android:layout_alignParentStart="true"
+            android:textColorHint="#FFFFFF"
             android:layout_alignTop="@+id/locationButton"
             android:layout_toStartOf="@+id/locationButton"
             android:inputType="textPersonName"
@@ -118,7 +122,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:text="Office Hours"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         />
 
     <RelativeLayout
@@ -142,6 +146,7 @@
             android:inputType="textPersonName"
             android:layout_toStartOf="@+id/hourButton"
             android:textSize="28dp"
+            android:textColorHint="#FFFFFF"
             android:gravity="bottom"
             android:layout_alignBottom="@+id/hourButton" />
 

@@ -4,6 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
+    android:background="#808080"
     android:weightSum="1">
 
 
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:text="Evaluation"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         />
 
     <RelativeLayout
@@ -37,6 +38,7 @@
             android:layout_alignParentStart="true"
             android:inputType="textPersonName"
             android:textSize="30dp"
+            android:textColorHint="#FFFFFF"
             android:gravity="bottom"
             android:layout_toStartOf="@+id/typeButton" />
     </RelativeLayout>
@@ -47,7 +49,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:text="Percent of Grade"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         />
 
     <RelativeLayout
@@ -71,6 +73,7 @@
             android:layout_alignTop="@+id/editWorth"
             android:layout_toStartOf="@+id/editWorth"
             android:gravity="bottom"
+            android:textColorHint="#FFFFFF"
             android:inputType="textPersonName"
             android:textSize="28dp" />
     </RelativeLayout>
@@ -81,7 +84,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:text="Percentage"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         />
 
     <RelativeLayout
@@ -103,6 +106,7 @@
             android:layout_height="match_parent"
             android:layout_alignBottom="@+id/gradeButton"
             android:layout_alignParentStart="true"
+            android:textColorHint="#FFFFFF"
             android:layout_alignTop="@+id/gradeButton"
             android:layout_toStartOf="@+id/gradeButton"
             android:inputType="textPersonName"
@@ -116,7 +120,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:text="Due Date"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         />
 
     <RelativeLayout
@@ -138,6 +142,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:inputType="textPersonName"
+            android:textColorHint="#FFFFFF"
             android:layout_toStartOf="@+id/dateButton"
             android:textSize="28dp"
             android:gravity="bottom"

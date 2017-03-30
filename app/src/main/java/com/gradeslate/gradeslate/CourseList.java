@@ -64,7 +64,7 @@ public class CourseList extends AppCompatActivity {
                         found = findCourse(position);
 
                     if (found != null) {
-                        Toast.makeText(CourseList.this, course, Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(CourseList.this, course, Toast.LENGTH_SHORT).show();
                         Intent goToNextActivity = new Intent(view.getContext(), course_info.class);
                         goToNextActivity.putExtra("course", course);
                         startActivity(goToNextActivity);

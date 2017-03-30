@@ -11,6 +11,7 @@
         android:layout_width="194dp"
         android:layout_height="wrap_content"
         android:textSize="30sp"
+        android:textColor="#FFFFFF"
         android:layout_gravity="left"
 
         />

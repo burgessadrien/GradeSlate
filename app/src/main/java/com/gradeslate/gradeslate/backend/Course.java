@@ -40,6 +40,11 @@ public class Course implements Serializable {
         int numGrd = 0;
         float curVal = 0;
         float check = 0;
+        float result = des;
+        if(grades.getGrades().isEmpty()==true){
+            result = des;
+            return result;
+        }
         Iterator it = this.grades.getEvaluations().iterator();
         while (it.hasNext()) {
             Evaluation eval = (Evaluation) it.next();
@@ -52,9 +57,11 @@ public class Course implements Serializable {
         }
         float max = des * ((float) numGrd);
         if (des - check <= 0) {
-            return 0;
+            result = 0;
+            return result;
         }
-        return (max - curVal) / ((float) (numGrd - numEntGrd));
+        result=(max - curVal) / ((float) (numGrd - numEntGrd));
+        return result;
     }
 
     public char letGrd() {

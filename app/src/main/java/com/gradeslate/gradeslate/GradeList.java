@@ -48,8 +48,8 @@ public class GradeList extends AppCompatActivity {
                 grade = String.valueOf(parent.getItemAtPosition(position));
                     String found = findGrade(position);
                     if (found != null) {
-                        Toast.makeText(GradeList.this,
-                                grade, Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(GradeList.this,
+                        //        grade, Toast.LENGTH_SHORT).show();
                         FileSystem.getInstance().setGrade(found);
                         Intent goToNextActivity = new Intent(view.getContext(), grade_info.class);
                         startActivity(goToNextActivity);
@@ -85,24 +85,28 @@ public class GradeList extends AppCompatActivity {
                                 //       R.string.semesterAddedMsg, Toast.LENGTH_SHORT).show();
                                 grade = mGrade.getText().toString();
                                 perWorth = Float.parseFloat(worth.getText().toString());
-                                FileSystem.getInstance().getGrades().addEval(grade, perWorth);
-                                if (gradeNames.get(0) == empty) {
-                                    gradeNames.clear();
-                                    gradeNames.add(grade);
-                                } else {
-                                    gradeNames.add(grade);
+                                Boolean add = FileSystem.getInstance().getGrades().addEval(grade, perWorth);
+                                if(add==true) {
+                                    if (gradeNames.get(0) == empty) {
+                                        gradeNames.clear();
+                                        gradeNames.add(grade);
+                                    } else {
+                                        gradeNames.add(grade);
+                                    }
+
+                                    adapter.notifyDataSetChanged();
+                                    String test = grade;
+                                    Toast.makeText(GradeList.this,
+                                            test, Toast.LENGTH_SHORT).show();
+                                    dialog.dismiss();
                                 }
-                                adapter.notifyDataSetChanged();
-                                String test = grade;
-                                Toast.makeText(GradeList.this,
-                                        test, Toast.LENGTH_SHORT).show();
-                                dialog.dismiss();
 
                             } else {
                                 Toast.makeText(GradeList.this,
                                         R.string.addGradeError, Toast.LENGTH_SHORT).show();
                             }
                         }catch(Exception e){}
+
                     }
                 });
                 dialog.setView(mView);

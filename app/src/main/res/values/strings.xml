@@ -105,4 +105,5 @@
     <string name="addCourseError">error adding course</string>
     <string name="title_activity_grade_list">GradeList</string>
     <string name="addGradeError">error adding grade</string>
+    <string name="title_activity_supplies">Supplies</string>
 </resources>

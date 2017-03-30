@@ -13,7 +13,7 @@ public class Grades implements Serializable {
 
     Grades() {
         this.grades = new ArrayList();
-        this.avgGrd = 100;
+        this.avgGrd = 0;
         this.curGrd = 0;
         this.letGrd = 'A';
         this.taken = 0;
@@ -22,16 +22,18 @@ public class Grades implements Serializable {
     public void average() {
         float sum = 0;
         float num = 0;
-        for(Evaluation eval:grades){
-            if(eval.entered()==true) {
-                num += 1;
-                sum += eval.getGrade();
+        if(grades.isEmpty()==false) {
+            for (Evaluation eval : grades) {
+                if (eval.entered() == true) {
+                    num += 1;
+                    sum += eval.getGrade();
+                }
             }
-        }
-        if(num >0)
-            this.avgGrd = sum / num;
-        else{
-            this.avgGrd = 0;
+            if (num > 0)
+                this.avgGrd = sum / num;
+            else {
+                this.avgGrd = 0;
+            }
         }
 
     }
@@ -42,13 +44,13 @@ public class Grades implements Serializable {
 
     public void letter() {
         average();
-        if (this.avgGrd >= 80.0f && this.avgGrd <= 100.0f) {
+        if ((this.avgGrd >= 80.0f) && (this.avgGrd <= 100.0f)) {
             this.letGrd = 'A';
-        } else if (this.avgGrd >= 65.0f && this.avgGrd <= 79.0f) {
+        } else if ((this.avgGrd >= 65.0f) && (this.avgGrd <= 79.0f)) {
             this.letGrd = 'B';
-        } else if (this.avgGrd >= 55.0f && this.avgGrd <= 64.0f) {
+        } else if ((this.avgGrd >= 55.0f) && (this.avgGrd <= 64.0f)) {
             this.letGrd = 'C';
-        } else if (this.avgGrd <= 50.0f || this.avgGrd >= 54.0f) {
+        } else if ((this.avgGrd >= 50.0f) && (this.avgGrd <= 54.0f)) {
             this.letGrd = 'D';
         } else {
             this.letGrd = 'F';

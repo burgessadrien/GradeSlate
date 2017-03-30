@@ -11,19 +11,23 @@ public class Bookbag implements Serializable {
         this.items = new ArrayList();
     }
 
-    public void addItem(String type) {
-        this.items.add(new Item(type));
+    public Boolean addItem(String type) {
+        if(type != "") {
+            this.items.add(new Item(type));
+            return true;
+        }
+        return false;
     }
 
-    public Item getItem(String find) {
-        Iterator it = this.items.iterator();
-        while (it.hasNext()) {
-            Item found = (Item) it.next();
-            if (found.getType() == find) {
-                return found;
-            }
+    public Item getItem(int position) {
+        if(items.size() != 0){
+            return items.get(position);
         }
         return null;
+    }
+
+    public ArrayList<Item> getItems(){
+        return items;
     }
 
     public int getTotalCost() {

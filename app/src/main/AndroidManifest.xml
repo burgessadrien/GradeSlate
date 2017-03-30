@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".course_info" />
-        <activity android:name=".ProfInfo"/>
+        <activity android:name=".ProfInfo" />
         <activity
             android:name=".CoursesList"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -29,8 +29,11 @@
             android:name=".GradeList"
             android:label="@string/title_activity_grade_list"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".grade_info"></activity>
-
+        <activity android:name=".grade_info" />
+        <activity
+            android:name=".Supplies"
+            android:label="@string/title_activity_supplies"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

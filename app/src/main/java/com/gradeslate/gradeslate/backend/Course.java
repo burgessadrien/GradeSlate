@@ -39,6 +39,7 @@ public class Course implements Serializable {
         int numEntGrd = 0;
         int numGrd = 0;
         float curVal = 0;
+        int empty = 0;
         float check = 0;
         float result = des;
         if(grades.getGrades().isEmpty()==true){
@@ -55,12 +56,13 @@ public class Course implements Serializable {
             }
             numGrd++;
         }
-        float max = des * ((float) numGrd);
+        empty = numGrd-numEntGrd;
+        float max = des * numGrd;
         if (des - check <= 0) {
             result = 0;
             return result;
         }
-        result=(max - curVal) / ((float) (numGrd - numEntGrd));
+        result=(max - curVal) / empty;
         return result;
     }
 

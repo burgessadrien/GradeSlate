@@ -117,6 +117,14 @@
         android:layout_marginTop="16dp" />
 
     <Button
+        android:id="@+id/bagButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="toSupplies"
+        android:text="Supplies" />
+
+    <Button
         android:id="@+id/gradesButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

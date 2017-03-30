@@ -40,21 +40,30 @@ public class course_info extends AppCompatActivity {
         try {
           float grade = FileSystem.getInstance().getCourse().desGrd(Float.valueOf(((EditText) findViewById(R.id.calcAverage)).getText().toString()).floatValue());
             TextView result = (TextView) findViewById(R.id.seeVal);
-            String res = String.valueOf(grade);
+            String res = "";
              if (grade > 100) {
                  res = "Futile";
              } else if (grade == 0) {
                   res = "Made It";
                 }
+                else if((grade>0)&&(grade<100)){
+                 res = String.valueOf(grade);
+             }
+                else{
+                 res = "Futile";
+             }
 
             result.setText(res);
         }catch(Exception e){}
     }
 
     public void toGrades(View view) {
-            Intent goToNextActivity = new Intent(view.getContext(), GradeList.class);
-            startActivity(goToNextActivity);
         Intent intent = new Intent(this, GradeList.class);
+        startActivity(intent);
+    }
+
+    public void toSupplies(View view) {
+        Intent intent = new Intent(this, Supplies.class);
         startActivity(intent);
     }
 
